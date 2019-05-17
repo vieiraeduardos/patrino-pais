@@ -91,6 +91,13 @@ export default class Login extends Component {
             >
               <Text style={styles.buttonText}>Entrar</Text>
             </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.buttonContainer}
+              onPress={this.onLoginPress.bind(this)}
+            >
+              <Text style={styles.buttonText}>Registrar-se</Text>
+            </TouchableOpacity>
           </KeyboardAvoidingView>
         </View>
 
@@ -128,6 +135,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   buttonContainer: {
+    marginTop: 10,
     backgroundColor: "#3c8dbc",
     paddingVertical: 15
   },

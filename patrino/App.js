@@ -38,7 +38,7 @@ class Home extends Component<{}> {
 
   render() {
 
-    if(logging == "true") {
+    if(logging == "false") {
       return (
         <View style={styles.container}>
           <StatusBar barStyle="light-content" backgroundColor="white" />
