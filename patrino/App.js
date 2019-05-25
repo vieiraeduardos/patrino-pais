@@ -12,14 +12,18 @@ import Test from "./app/components/Test";
 
 class Home extends Component<{}> {
 
+  state = {
+    logging: "false"
+  };
+
   constructor() {
     super();
 
-    logging = "false";
   }
 
   componentDidMount() {
-    logging: this.retrieveData();
+    this.retrieveData()
+
   }
 
   static navigationOptions = {
@@ -32,13 +36,18 @@ class Home extends Component<{}> {
 
   async retrieveData() {
     const value = await AsyncStorage.getItem('logging');
+    const email = await AsyncStorage.getItem('email');
 
-    return value
+    console.debug(value);
+
+    this.setState({
+      logging: value
+    })
   };
 
   render() {
 
-    if(logging == "false") {
+    if(this.state.logging == "false") {
       return (
         <View style={styles.container}>
           <StatusBar barStyle="light-content" backgroundColor="white" />
