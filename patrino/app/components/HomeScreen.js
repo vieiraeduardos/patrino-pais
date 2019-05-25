@@ -7,13 +7,9 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import { StackNavigator } from "react-navigation";
 
-import { BarChart, Grid } from 'react-native-svg-charts';
-
-import Question from "./Question";
-import BarChartE from "./BarChartExample";
 import Helps from "./Helps";
 import Posts from "./Posts";
-import myTheme from './Theme';
+
 
 export default class HomeScreen extends Component {
   static navigationOptions = {

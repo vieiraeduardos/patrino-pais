@@ -8,7 +8,6 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Login from "./app/components/Login";
 import HomeScreen from "./app/components/HomeScreen";
 import QRCodeReader from "./app/components/QRCodeReader";
-import Test from "./app/components/Test";
 
 class Home extends Component<{}> {
 
@@ -90,12 +89,7 @@ const App = createStackNavigator({
       title: "Leitor de QR Code"
     }
   },
-  Test: {
-    screen: Test,
-    navigationOptions: {
-      title: "Teste"
-    }
-  },
+  
 });
 
 export default createAppContainer(App);
