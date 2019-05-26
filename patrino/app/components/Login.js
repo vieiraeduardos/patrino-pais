@@ -36,11 +36,13 @@ export default class Login extends Component {
   async login(responseJson) {
     try {
       if(responseJson.message == "OK") {
-        async () => {
-          await AsyncStorage.setItem('email', email);
-          await AsyncStorage.setItem('password', password);
-          await AsyncStorage.setItem('logging', "true");
-        }
+        console.log("Code")
+        console.debug(responseJson.code);
+        await AsyncStorage.setItem('code', "" + responseJson.code);
+        await AsyncStorage.setItem('logging', "true");
+
+        this.props.navigation.navigate("HomeScreen");
+
       } else {
         Alert.alert("E-mail ou senha estão incorretos!");
 
@@ -67,11 +69,13 @@ export default class Login extends Component {
       })
       .then((response) => response.json())
       .then((responseJson) => {
-          this.login(responseJson);
-
           if(responseJson.message == "OK") {
-            this.props.navigation.navigate("HomeScreen");
+            this.login(responseJson);
+          } else {
+            Alert.alert("E-mail ou senha estão incorretos!");
+
           }
+
       })
       .catch((error) => {
         console.error(error);

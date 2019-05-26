@@ -86,6 +86,12 @@ export default class HomeScreen extends Component {
           <Right>
             <Button
               transparent
+              onPress={() => this.props.navigation.navigate("Settings") }
+            >
+              <Icon type="MaterialIcons" name="settings" />
+            </Button>
+            <Button
+              transparent
               onPress={this.sair.bind(this)}
             >
               <Icon type="MaterialIcons" name="exit-to-app" />

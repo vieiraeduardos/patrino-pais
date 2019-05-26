@@ -9,6 +9,7 @@ import Login from "./app/components/Login";
 import HomeScreen from "./app/components/HomeScreen";
 import QRCodeReader from "./app/components/QRCodeReader";
 import Register from "./app/components/Register";
+import Settings from "./app/components/Settings";
 
 class Home extends Component<{}> {
 
@@ -94,6 +95,12 @@ const App = createStackNavigator({
     screen: Register,
     navigationOptions: {
       title: "Registro"
+    }
+  },
+  Settings: {
+    screen: Settings,
+    navigationOptions: {
+      title: "Settings"
     }
   },
 
