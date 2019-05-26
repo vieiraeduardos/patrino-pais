@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AppRegistry, Dimensions, StyleSheet, View, FlatList, Image, Alert, TextInput, TouchableOpacity, Linking, ScrollView } from "react-native";
+import { AppRegistry, Dimensions, StyleSheet, View, FlatList, Image, Alert, TextInput, TouchableOpacity, Linking, ScrollView, BackHandler } from "react-native";
 
 import {Form, Content, Accordion, Thumbnail, Container, Item, Input, Header, Left, Body, Icon, Button, Text, Tabs, Tab, Right, Title, Card, CardItem, Badge } from "native-base";
 
@@ -9,6 +9,7 @@ import { StackNavigator } from "react-navigation";
 
 import Helps from "./Helps";
 import Posts from "./Posts";
+import Login from "./Login";
 
 
 export default class HomeScreen extends Component {
@@ -20,17 +21,40 @@ export default class HomeScreen extends Component {
     header: null
   };
 
-  constructor(props){
-    super(props);
+  state = {
+    logging: "false"
+  };
+
+  constructor() {
+    super();
+
   }
+
+  componentDidMount() {
+    this.retrieveData()
+
+  }
+
 
   async sair() {
     await AsyncStorage.setItem("email", "");
     await AsyncStorage.setItem("password", "");
     await AsyncStorage.setItem("logging", "false");
 
-    this.props.navigation.navigate("Login");
+    BackHandler.exitApp();
+    return true;
 
+  };
+
+  async retrieveData() {
+    const value = await AsyncStorage.getItem('logging');
+    const email = await AsyncStorage.getItem('email');
+
+    console.debug(value);
+
+    this.setState({
+      logging: value
+    })
   };
 
   render() {
@@ -49,6 +73,7 @@ export default class HomeScreen extends Component {
       { title: "Como guardar o leite retirado para doação?",
         content: "O frasco com o leite retirado deve ser armazenado no congelador ou freezer. Na próxima vez que for retirar o leite, utilize outro recipiente esterilizado e ao terminar acrescente este leite no frasco que está no freezer ou congelador. O leite pode ficar armazenado congelado por até 15 dias. O leite humano doado, após passar por processo que envolve seleção, classificação e pasteurização, é distribuído com qualidade certificada aos bebês   internados em unidades neonatais."}
     ];
+
     return (
       <Container>
         <Header hasTabs>
