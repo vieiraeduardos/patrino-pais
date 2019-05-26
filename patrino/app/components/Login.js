@@ -19,9 +19,9 @@ export default class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      password: "",
-      logging: "false"
+      "email": "",
+      "password": "",
+      "logging": "false"
     };
   }
 
@@ -33,25 +33,49 @@ export default class Login extends Component {
     header: null
   };
 
-  async onLoginPress() {
-    const CorrectEmail = "eduardo";
-    const CorrectPassword = "@eduardo";
+  async login(responseJson) {
+    try {
+      if(responseJson.message == "OK") {
+        async () => {
+          await AsyncStorage.setItem('email', email);
+          await AsyncStorage.setItem('password', password);
+          await AsyncStorage.setItem('logging', "true");
+        }
+      } else {
+        Alert.alert("E-mail ou senha estão incorretos!");
 
+      }
+    } catch (error) {
+      console.debug(error);
+    }
+  };
+
+
+  onLoginPress() {
     const { email, password } = this.state;
 
-    await AsyncStorage.setItem("email", email);
-    await AsyncStorage.setItem("password", password);
+    return fetch('http://192.168.1.9:1234/login', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        }),
+      })
+      .then((response) => response.json())
+      .then((responseJson) => {
+          this.login(responseJson);
 
-    if (email == CorrectEmail && password == CorrectPassword) {
-      await AsyncStorage.setItem("logging", "true");
-
-      this.props.navigation.navigate("HomeScreen");
-
-    } else {
-      Alert.alert(
-         "E-mail ou senha estão incorretos!"
-      )
-    }
+          if(responseJson.message == "OK") {
+            this.props.navigation.navigate("HomeScreen");
+          }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   render() {
@@ -71,8 +95,7 @@ export default class Login extends Component {
                 keyboardType="email-address"
                 autoCapitalize="none"
                 autoCorrect={false}
-                value={this.state.email}
-                onChangeText={email => this.setState({ email })}
+                onChangeText={(email) => this.setState({email})}
               />
             </View>
             <View style={styles.window}>
@@ -81,9 +104,7 @@ export default class Login extends Component {
                 returnKeyType="go"
                 secureTextEntry
                 ref={input => (this.passwordInput = input)}
-                value={this.state.password}
-                onChangeText={password => this.setState({ password })}
-              />
+                onChangeText={(password) => this.setState({password})}              />
             </View>
             <TouchableOpacity
               style={styles.buttonContainer}

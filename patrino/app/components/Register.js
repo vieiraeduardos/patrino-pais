@@ -146,4 +146,4 @@ const styles = StyleSheet.create({
 });
 
 
-AppRegistry.registerComponent("HomeScreen", () => HomeScreen);
+AppRegistry.registerComponent("Register", () => Register);
