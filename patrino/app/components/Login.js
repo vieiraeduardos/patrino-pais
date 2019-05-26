@@ -94,7 +94,9 @@ export default class Login extends Component {
 
             <TouchableOpacity
               style={styles.buttonContainer}
-              onPress={this.onLoginPress.bind(this)}
+              onPress={() => {
+                this.props.navigation.navigate("Register");
+              }}
             >
               <Text style={styles.buttonText}>Registrar-se</Text>
             </TouchableOpacity>
