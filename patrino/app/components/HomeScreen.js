@@ -1,11 +1,23 @@
-import React, { Component } from "react";
+/**import React, { Component } from "react";
 import { AppRegistry, Dimensions, StyleSheet, View, FlatList, Image, Alert, TextInput, TouchableOpacity, Linking, ScrollView, BackHandler } from "react-native";
 
 import {Form, Content, Accordion, Thumbnail, Container, Item, Input, Header, Left, Body, Icon, Button, Text, Tabs, Tab, Right, Title, Card, CardItem, Badge } from "native-base";
+**/
 
 import AsyncStorage from '@react-native-community/async-storage';
 
 import { StackNavigator } from "react-navigation";
+
+import React, {Component} from 'react';
+import {Platform, StyleSheet, View, ScrollView} from 'react-native';
+
+import {
+  Avatar,
+  Badge,
+  Header,
+  Tile,
+  Text
+} from "react-native-elements";
 
 import Helps from "./Helps";
 import Posts from "./Posts";
@@ -75,47 +87,61 @@ export default class HomeScreen extends Component {
     ];
 
     return (
-      <Container>
-        <Header hasTabs>
-          <Left>
-            <Image style={styles.logo} source={require("./heart.png")} />
-          </Left>
-          <Body>
-            <Title>Patrino</Title>
-          </Body>
-          <Right>
-            <Button
-              transparent
-              onPress={() => this.props.navigation.navigate("Settings") }
-            >
-              <Icon type="MaterialIcons" name="settings" />
-            </Button>
-            <Button
-              transparent
-              onPress={this.sair.bind(this)}
-            >
-              <Icon type="MaterialIcons" name="exit-to-app" />
-            </Button>
-          </Right>
-        </Header>
+      <View>
+        <Header
+          statusBarProps={{ barStyle: 'light-content', backgroundColor: '#3D6DCC' }}
+          barStyleP="light-content"
+          leftComponent={{ icon: 'menu', color: '#fff' }}
+          centerComponent={{ text: 'Patrino', style: { color: '#fff' } }}
+          rightComponent={<View>
+        <Avatar
+          rounded
+          source={require('./team-3-800x800.jpg')}
+        />
+        <Badge
+          status="success"
+          containerStyle={{ position: 'absolute', top: -4, right: -4 }}
+        />
+      </View>
+    }
+          containerStyle={{
+            backgroundColor: '#3D6DCC',
+            justifyContent: 'space-around',
+          }}
+        />
 
-        <Tabs>
-          <Tab heading="Início">
-            <Posts />
-          </Tab>
-          <Tab heading="Perguntas Frequentes">
-            <ScrollView>
-              <Content padder>
-                <Accordion dataArray={dataArray} expanded={0}/>
-              </Content>
-            </ScrollView>
+        <ScrollView>
+          <View style={{ marginTop: 10}}>
+            <Tile
+              imageSrc={require('./1.jpg')}
+              title="SEJA UMA DOADORA!"
+              featured
+              caption="Veja como é fácil ser uma doadora"
+            />
+          </View>
 
-          </Tab>
+          <View style={{ marginTop: 10 }}>
+            <Tile
+              imageSrc={require('./2.jpg')}
+              title="ONDE DOAR?"
+              featured
+              caption="Localize o Banco de Leite mais próximo"
+            />
+          </View>
 
-        </Tabs>
+          <View style={{ marginTop: 10 }}>
+            <Tile
+              imageSrc={require('./3.jpg')}
+              title="TEM ALGUMA DÚVIDA?"
+              featured
+              caption="Encontre todas as respostas que precisa sobre doação"
+            />
+          </View>
 
-      </Container>
+        </ScrollView>
+      </View>
     );
+
   }
 
 }
@@ -166,6 +192,3 @@ const styles = StyleSheet.create({
     marginBottom: 15
   }
 });
-
-
-AppRegistry.registerComponent("HomeScreen", () => HomeScreen);
