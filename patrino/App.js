@@ -1,46 +1,46 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, StatusBar, Alert, Image} from 'react-native';
+
+import {
+  StyleSheet,
+  View
+} from 'react-native';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import {
+  createStackNavigator,
+  createAppContainer
+} from 'react-navigation';
 
+/*Importando componentes de telas*/
 import Login from "./app/components/Login";
 import HomeScreen from "./app/components/HomeScreen";
-import QRCodeReader from "./app/components/QRCodeReader";
 import Register from "./app/components/Register";
 import Settings from "./app/components/Settings";
 import MyMap from "./app/components/MyMap";
 
-class Home extends Component<{}> {
+class Home extends Component {
+  constructor(props) {
+    super(props);
 
-  state = {
-    logging: "false"
-  };
-
-  constructor() {
-    super();
-
+    this.state = {
+      "logging": false
+    };
   }
 
   componentDidMount() {
-    this.retrieveData()
+    this.setLogging()
 
   }
 
+  /*Eliminando header padrão*/
   static navigationOptions = {
-    headerStyle: {
-      backgroundColor: "white",
-      elevation: null
-    },
     header: null
   };
 
-  async retrieveData() {
+  /*Definindo o valor de logging: true ou false*/
+  async setLogging() {
     const value = await AsyncStorage.getItem('logging');
-    const email = await AsyncStorage.getItem('email');
-
-    console.debug(value);
 
     this.setState({
       logging: value
@@ -48,18 +48,15 @@ class Home extends Component<{}> {
   };
 
   render() {
-
     if(this.state.logging == "false") {
       return (
         <View style={styles.container}>
-          <StatusBar barStyle="light-content" backgroundColor="white" />
           <Login navigation={this.props.navigation} />
         </View>
       );
     } else {
       return (
         <View style={styles.container}>
-          <StatusBar barStyle="light-content" backgroundColor="white" />
           <HomeScreen navigation={this.props.navigation} />
         </View>
       );
@@ -86,12 +83,6 @@ const App = createStackNavigator({
       title: "Login"
     }
   },
-  QRCodeReader: {
-    screen: QRCodeReader,
-    navigationOptions: {
-      title: "Leitor de QR Code"
-    }
-  },
   MyMap: {
     screen: MyMap,
     navigationOptions: {
@@ -115,9 +106,9 @@ const App = createStackNavigator({
 
 export default createAppContainer(App);
 
+/*Criando stylesheet*/
 const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-
 });
