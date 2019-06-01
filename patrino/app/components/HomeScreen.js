@@ -81,7 +81,7 @@ export default class HomeScreen extends Component {
           rightComponent={<View>
         <Avatar
           rounded
-          source={require('./team-3-800x800.jpg')}
+          source={require('../res/team-3-800x800.jpg')}
         />
         <Badge
           status="success"
@@ -98,7 +98,7 @@ export default class HomeScreen extends Component {
         <ScrollView>
           <View style={{ marginTop: 10}}>
             <Tile
-              imageSrc={require('./1.jpg')}
+              imageSrc={require('../res/1.jpg')}
               title="SEJA UMA DOADORA!"
               featured
               caption="Veja como é fácil ser uma doadora"
@@ -108,7 +108,7 @@ export default class HomeScreen extends Component {
           <View style={{ marginTop: 10 }}>
             <Tile
               onPress={() => this.props.navigation.navigate("MyMap")}
-              imageSrc={require('./2.jpg')}
+              imageSrc={require('../res/2.jpg')}
               title="ONDE DOAR?"
               featured
               caption="Localize o Banco de Leite mais próximo"
@@ -118,7 +118,7 @@ export default class HomeScreen extends Component {
           <View style={{ marginTop: 10 }}>
             <Tile
               onPress={() => console.debug("OK")}
-              imageSrc={require('./3.jpg')}
+              imageSrc={require('../res/3.jpg')}
               title="TEM ALGUMA DÚVIDA?"
               featured
               caption="Encontre todas as respostas que precisa sobre doação"

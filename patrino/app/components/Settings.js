@@ -78,16 +78,6 @@ export default class Settings extends Component {
   render() {
     return (
       <View>
-        <Header>
-          <Left>
-            <Image style={styles.logo} source={require("./heart.png")} />
-          </Left>
-          <Body>
-            <Title>Patrino</Title>
-          </Body>
-
-        </Header>
-
         <ScrollView>
           <Label>Nome</Label>
           <TextInput onChangeText={(name) => this.setState({name})} />
