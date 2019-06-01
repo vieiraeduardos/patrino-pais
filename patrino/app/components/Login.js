@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+
 import {
   Alert,
-  AppRegistry,
   KeyboardAvoidingView,
   TouchableOpacity,
   Image,
@@ -13,8 +13,6 @@ import {
 
 import AsyncStorage from '@react-native-community/async-storage';
 
-import { StackNavigator } from "react-navigation";
-
 export default class Login extends Component {
   constructor() {
     super();
@@ -25,19 +23,15 @@ export default class Login extends Component {
     };
   }
 
+  /*Removendo header padrão*/
   static navigationOptions = {
-    headerStyle: {
-      backgroundColor: "white",
-      elevation: null
-    },
     header: null
   };
 
+  /*Definindo as credenciais do usuário*/
   async login(responseJson) {
     try {
       if(responseJson.message == "OK") {
-        console.log("Code")
-        console.debug(responseJson.code);
         await AsyncStorage.setItem('code', "" + responseJson.code);
         await AsyncStorage.setItem('logging', "true");
 
@@ -52,11 +46,11 @@ export default class Login extends Component {
     }
   };
 
-
+  /*Verificando as credenciais do usuário*/
   onLoginPress() {
     const { email, password } = this.state;
 
-    return fetch('http://192.168.1.9:1234/login', {
+    return fetch('http://200.137.131.118:1234/login', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -73,9 +67,7 @@ export default class Login extends Component {
             this.login(responseJson);
           } else {
             Alert.alert("E-mail ou senha estão incorretos!");
-
           }
-
       })
       .catch((error) => {
         console.error(error);
@@ -179,5 +171,3 @@ const styles = StyleSheet.create({
     marginBottom: 15
   }
 });
-
-AppRegistry.registerComponent("Login", () => Login);
