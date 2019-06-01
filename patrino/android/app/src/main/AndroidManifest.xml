@@ -3,6 +3,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
       android:name=".MainApplication"
@@ -11,6 +12,9 @@
       android:roundIcon="@drawable/icon"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
+      <meta-data
+       android:name="com.google.android.geo.API_KEY"
+       android:value="AIzaSyD3Y7zmn4POYkXa7ncg9QZJ02LOaFfSnGA" />
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"

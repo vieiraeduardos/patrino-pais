@@ -10,6 +10,7 @@ import HomeScreen from "./app/components/HomeScreen";
 import QRCodeReader from "./app/components/QRCodeReader";
 import Register from "./app/components/Register";
 import Settings from "./app/components/Settings";
+import MyMap from "./app/components/MyMap";
 
 class Home extends Component<{}> {
 
@@ -89,6 +90,12 @@ const App = createStackNavigator({
     screen: QRCodeReader,
     navigationOptions: {
       title: "Leitor de QR Code"
+    }
+  },
+  MyMap: {
+    screen: MyMap,
+    navigationOptions: {
+      title: "MyMap"
     }
   },
   Register: {

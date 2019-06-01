@@ -1,15 +1,9 @@
-/**import React, { Component } from "react";
-import { AppRegistry, Dimensions, StyleSheet, View, FlatList, Image, Alert, TextInput, TouchableOpacity, Linking, ScrollView, BackHandler } from "react-native";
-
-import {Form, Content, Accordion, Thumbnail, Container, Item, Input, Header, Left, Body, Icon, Button, Text, Tabs, Tab, Right, Title, Card, CardItem, Badge } from "native-base";
-**/
+import React, {Component} from 'react';
+import {Platform, StyleSheet, View, ScrollView} from 'react-native';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
 import { StackNavigator } from "react-navigation";
-
-import React, {Component} from 'react';
-import {Platform, StyleSheet, View, ScrollView} from 'react-native';
 
 import {
   Avatar,
@@ -19,17 +13,8 @@ import {
   Text
 } from "react-native-elements";
 
-import Helps from "./Helps";
-import Posts from "./Posts";
-import Login from "./Login";
-
-
 export default class HomeScreen extends Component {
   static navigationOptions = {
-    headerStyle: {
-      backgroundColor: "white",
-      elevation: null
-    },
     header: null
   };
 
@@ -122,6 +107,7 @@ export default class HomeScreen extends Component {
 
           <View style={{ marginTop: 10 }}>
             <Tile
+              onPress={() => this.props.navigation.navigate("MyMap")}
               imageSrc={require('./2.jpg')}
               title="ONDE DOAR?"
               featured
@@ -131,6 +117,7 @@ export default class HomeScreen extends Component {
 
           <View style={{ marginTop: 10 }}>
             <Tile
+              onPress={() => console.debug("OK")}
               imageSrc={require('./3.jpg')}
               title="TEM ALGUMA DÚVIDA?"
               featured
