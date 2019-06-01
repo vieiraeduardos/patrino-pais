@@ -1,13 +1,16 @@
 import React, { Component } from "react";
-import { AppRegistry, Dimensions, StyleSheet, View, FlatList, Image, Alert, TextInput, TouchableOpacity, Linking, ScrollView } from "react-native";
-
-import {Form, Content, Accordion, Thumbnail, Container, Item, Input, Header, Label, Left, Body, Icon, Button, Text, Tabs, Tab, Right, Title, Card, CardItem, Badge } from "native-base";
+import {
+  StyleSheet,
+  View,
+  Alert,
+  TextInput,
+  ScrollView
+} from "react-native";
 
 import AsyncStorage from '@react-native-community/async-storage';
 
-import { StackNavigator } from "react-navigation";
-
 export default class Register extends Component {
+  /*Removendo header padrão*/
   static navigationOptions = {
     header: null
   };
@@ -24,6 +27,7 @@ export default class Register extends Component {
     };
   }
 
+  /*Registrando um novo usuário*/
   onRegisterPress() {
     var name = this.state.name;
     var email = this.state.email;
@@ -31,7 +35,7 @@ export default class Register extends Component {
     var phone = this.state.phone;
     var address = this.state.address;
 
-    return fetch('http://192.168.1.9:1234/users', {
+    return fetch('http://200.137.131.118:1234/users', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -57,93 +61,38 @@ export default class Register extends Component {
 
   render() {
     return (
-      <Container>
-        <Header>
-          <Left>
-            <Image style={styles.logo} source={require("./heart.png")} />
-          </Left>
-          <Body>
-            <Title>Patrino</Title>
-          </Body>
-
-        </Header>
-
+      <View style={styles.container}>
         <ScrollView>
-          <Form>
-            <Label>Nome</Label>
-            <Input onChangeText={(name) => this.setState({name})} />
+          <Label>Nome</Label>
+          <TextInput onChangeText={(name) => this.setState({name})} />
 
-            <Label>E-mail</Label>
-            <Input onChangeText={(email) => this.setState({email})} />
+          <Label>E-mail</Label>
+          <TextInput onChangeText={(email) => this.setState({email})} />
 
-            <Label>Telefone</Label>
-            <Input onChangeText={(phone) => this.setState({phone})} />
+          <Label>Telefone</Label>
+          <TextInput onChangeText={(phone) => this.setState({phone})} />
 
-            <Label>Senha</Label>
-            <Input onChangeText={(password) => this.setState({password})} />
+          <Label>Senha</Label>
+          <TextInput onChangeText={(password) => this.setState({password})} />
 
-            <Label>Endereço</Label>
-            <Input onChangeText={(address) => this.setState({address})} />
+          <Label>Endereço</Label>
+          <TextInput onChangeText={(address) => this.setState({address})} />
 
-            <Button success style={{ margin: 10 }}
-              onPress={() => this.onRegisterPress()}
-            >
-              <Text>Cadastrar-se</Text>
-            </Button>
+          <Button success style={{ margin: 10 }}
+            onPress={() => this.onRegisterPress()}
+          >
+            <Text>Cadastrar-se</Text>
+          </Button>
 
-          </Form>
         </ScrollView>
-      </Container>
+      </View>
     );
   }
 }
 
+/*Criando stylesheet*/
 const styles = StyleSheet.create({
-
   container: {
-    flex: 1,
-    backgroundColor: "white"
-  },
-  logoContainer: {
-    alignItems: "center",
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  logo: {
-    width: 30,
-    height: 30
-  },
-  subtext: {
-    color: "black",
-    marginTop: 10,
-    width: 160,
-    textAlign: "center",
-    opacity: 0.8
-  },
-  keyboard: {
-    margin: 20,
-    padding: 20,
-    alignSelf: "stretch"
-  },
-  buttonContainer: {
-    width: '70%',
-    justifyContent: 'center',
-    alignItems: 'center'
-
-  },
-  buttonText: {
-    backgroundColor: 'blue',
-    color: 'white'
-  },
-  button: {
-    backgroundColor: "#3c8dbc",
-    paddingVertical: 15
-  },
-  window: {
-    marginBottom: 15
+    flex: 1
   }
 });
-
-
-AppRegistry.registerComponent("Register", () => Register);
