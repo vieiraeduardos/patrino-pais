@@ -98,7 +98,7 @@ export default class HomeScreen extends Component {
         <ScrollView>
           <View style={{ marginTop: 10}}>
             <Tile
-              imageSrc={require('../res/1.jpg')}
+              imageSrc={require('../res/suhyeon-choi-251615-unsplash.jpg')}
               title="SEJA UMA DOADORA!"
               featured
               caption="Veja como é fácil ser uma doadora"
@@ -108,7 +108,7 @@ export default class HomeScreen extends Component {
           <View style={{ marginTop: 10 }}>
             <Tile
               onPress={() => this.props.navigation.navigate("MyMap")}
-              imageSrc={require('../res/2.jpg')}
+              imageSrc={require('../res/photo-1501511795728-df53825d742a.jpeg')}
               title="ONDE DOAR?"
               featured
               caption="Localize o Banco de Leite mais próximo"
@@ -118,7 +118,7 @@ export default class HomeScreen extends Component {
           <View style={{ marginTop: 10 }}>
             <Tile
               onPress={() => console.debug("OK")}
-              imageSrc={require('../res/3.jpg')}
+              imageSrc={require('../res/photo-1446511437394-36cdff3ae1b3.jpeg')}
               title="TEM ALGUMA DÚVIDA?"
               featured
               caption="Encontre todas as respostas que precisa sobre doação"
