@@ -38,6 +38,8 @@ export default class Questions extends Component {
         content: "O frasco com o leite retirado deve ser armazenado no congelador ou freezer. Na próxima vez que for retirar o leite, utilize outro recipiente esterilizado e ao terminar acrescente este leite no frasco que está no freezer ou congelador. O leite pode ficar armazenado congelado por até 15 dias. O leite humano doado, após passar por processo que envolve seleção, classificação e pasteurização, é distribuído com qualidade certificada aos bebês   internados em unidades neonatais."}
     ];
 
+   const navigation = this.props.navigation.state.params.navigation;
+
    return (
      <ThemeProvider>
        <Header
@@ -65,8 +67,12 @@ export default class Questions extends Component {
        <FlatList
         data={questions}
         keyExtractor={(item, index) => item.title}
-        renderItem={({item}) => <Card>
-                                  <Text style={{marginBottom: 10}}>
+        renderItem={({item}) => <Card
+                                >
+                                  <Text
+                                    style={{marginBottom: 10}}
+                                    onPress={() => navigation.navigate("Question", {item})}
+                                  >
                                     {item.title}
                                   </Text>
                                 </Card>}

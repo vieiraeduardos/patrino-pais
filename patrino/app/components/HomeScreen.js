@@ -55,6 +55,7 @@ export default class HomeScreen extends Component {
   };
 
   render() {
+    const navigation = this.props.navigation;
     return (
       <View>
         <Header
@@ -101,7 +102,7 @@ export default class HomeScreen extends Component {
 
           <View style={styles.cards}>
             <Tile
-              onPress={() => this.props.navigation.navigate("Questions")}
+              onPress={() => this.props.navigation.navigate("Questions", {navigation})}
               imageSrc={require('../res/photo-1446511437394-36cdff3ae1b3.jpeg')}
               title="TEM ALGUMA DÚVIDA?"
               featured
