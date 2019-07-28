@@ -20,8 +20,11 @@ import Settings from "./app/components/Settings";
 import MyMap from "./app/components/MyMap";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Questions from "./app/components/Questions";
 import Question from "./app/components/Question";
+=======
+>>>>>>> parent of e7f1cfc... Adding questions
 =======
 >>>>>>> parent of e7f1cfc... Adding questions
 =======
@@ -111,6 +114,7 @@ const App = createStackNavigator({
   },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   Questions: {
     screen: Questions,
     navigationOptions: {
@@ -124,6 +128,8 @@ const App = createStackNavigator({
     }
   },
 =======
+=======
+>>>>>>> parent of e7f1cfc... Adding questions
 =======
 >>>>>>> parent of e7f1cfc... Adding questions
 

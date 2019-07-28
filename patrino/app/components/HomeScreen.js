@@ -57,8 +57,11 @@ export default class HomeScreen extends Component {
   render() {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     const navigation = this.props.navigation;
 =======
+=======
+>>>>>>> parent of e7f1cfc... Adding questions
 =======
 >>>>>>> parent of e7f1cfc... Adding questions
 
@@ -78,6 +81,9 @@ export default class HomeScreen extends Component {
     ];
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of e7f1cfc... Adding questions
+=======
 >>>>>>> parent of e7f1cfc... Adding questions
 =======
 >>>>>>> parent of e7f1cfc... Adding questions
@@ -129,7 +135,11 @@ export default class HomeScreen extends Component {
             <Tile
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               onPress={() => this.props.navigation.navigate("Questions", {navigation})}
+=======
+              onPress={() => console.debug("OK")}
+>>>>>>> parent of e7f1cfc... Adding questions
 =======
               onPress={() => console.debug("OK")}
 >>>>>>> parent of e7f1cfc... Adding questions
@@ -174,6 +184,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     opacity: 0.8
 <<<<<<< HEAD
+<<<<<<< HEAD
   },
   keyboard: {
     margin: 20,
@@ -181,12 +192,17 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
 =======
+=======
+>>>>>>> parent of e7f1cfc... Adding questions
   },
   keyboard: {
     margin: 20,
     padding: 20,
     alignSelf: "stretch"
   },
+<<<<<<< HEAD
+>>>>>>> parent of e7f1cfc... Adding questions
+=======
 >>>>>>> parent of e7f1cfc... Adding questions
   buttonContainer: {
     width: '70%',
