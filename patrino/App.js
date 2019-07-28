@@ -18,6 +18,8 @@ import HomeScreen from "./app/components/HomeScreen";
 import Register from "./app/components/Register";
 import Settings from "./app/components/Settings";
 import MyMap from "./app/components/MyMap";
+import Questions from "./app/components/Questions";
+import Question from "./app/components/Question";
 
 class Home extends Component {
   constructor(props) {
@@ -101,7 +103,18 @@ const App = createStackNavigator({
       title: "Settings"
     }
   },
-
+  Questions: {
+    screen: Questions,
+    navigationOptions: {
+      title: "Questions"
+    }
+  },
+  Question: {
+    screen: Question,
+    navigationOptions: {
+      title: "Question"
+    }
+  },
 });
 
 export default createAppContainer(App);
