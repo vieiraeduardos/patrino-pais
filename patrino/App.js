@@ -18,9 +18,12 @@ import HomeScreen from "./app/components/HomeScreen";
 import Register from "./app/components/Register";
 import Settings from "./app/components/Settings";
 import MyMap from "./app/components/MyMap";
+<<<<<<< HEAD
 
 import Questions from "./app/components/Questions";
 import Question from "./app/components/Question";
+=======
+>>>>>>> parent of e7f1cfc... Adding questions
 
 class Home extends Component {
   constructor(props) {
@@ -104,6 +107,7 @@ const App = createStackNavigator({
       title: "Settings"
     }
   },
+<<<<<<< HEAD
 
   Questions: {
     screen: Questions,
@@ -117,6 +121,8 @@ const App = createStackNavigator({
       title: "Question"
     }
   },
+=======
+>>>>>>> parent of e7f1cfc... Adding questions
 
 });
 

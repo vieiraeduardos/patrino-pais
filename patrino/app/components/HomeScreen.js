@@ -56,8 +56,11 @@ export default class HomeScreen extends Component {
 
   render() {
 
+<<<<<<< HEAD
     const navigation = this.props.navigation;
 
+=======
+>>>>>>> parent of e7f1cfc... Adding questions
     const dataArray = [
       { title: "Quem pode ser doadora de leite humano?",
         content: "Algumas mulheres quando estão amamentando produzem um volume de leite além da necessidade do bebê, o que possibilita que sejam doadoras de um Banco de Leite Humano. De acordo com a legislação que regulamenta o funcionamento dos Bancos de Leite no Brasil (RDC Nº 171) a doadora, além de  apresentar excesso de leite, deve ser saudável, não usar medicamentos que impeçam a doação e se dispor a ordenhar e a doar o excedente." },
@@ -119,8 +122,12 @@ export default class HomeScreen extends Component {
 
           <View style={{ marginTop: 10 }}>
             <Tile
+<<<<<<< HEAD
 
               onPress={() => this.props.navigation.navigate("Questions", {navigation})}
+=======
+              onPress={() => console.debug("OK")}
+>>>>>>> parent of e7f1cfc... Adding questions
               imageSrc={require('../res/photo-1446511437394-36cdff3ae1b3.jpeg')}
               title="TEM ALGUMA DÚVIDA?"
               featured
@@ -158,6 +165,7 @@ const styles = StyleSheet.create({
     width: 160,
     textAlign: "center",
     opacity: 0.8
+<<<<<<< HEAD
   },
   keyboard: {
     margin: 20,
@@ -165,6 +173,9 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   },
+=======
+  },
+>>>>>>> parent of e7f1cfc... Adding questions
   keyboard: {
     margin: 20,
     padding: 20,
