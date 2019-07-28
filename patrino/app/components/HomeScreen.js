@@ -56,8 +56,11 @@ export default class HomeScreen extends Component {
 
   render() {
 <<<<<<< HEAD
+<<<<<<< HEAD
     const navigation = this.props.navigation;
 =======
+=======
+>>>>>>> parent of e7f1cfc... Adding questions
 
     const dataArray = [
       { title: "Quem pode ser doadora de leite humano?",
@@ -74,6 +77,9 @@ export default class HomeScreen extends Component {
         content: "O frasco com o leite retirado deve ser armazenado no congelador ou freezer. Na próxima vez que for retirar o leite, utilize outro recipiente esterilizado e ao terminar acrescente este leite no frasco que está no freezer ou congelador. O leite pode ficar armazenado congelado por até 15 dias. O leite humano doado, após passar por processo que envolve seleção, classificação e pasteurização, é distribuído com qualidade certificada aos bebês   internados em unidades neonatais."}
     ];
 
+<<<<<<< HEAD
+>>>>>>> parent of e7f1cfc... Adding questions
+=======
 >>>>>>> parent of e7f1cfc... Adding questions
     return (
       <View>
@@ -122,7 +128,11 @@ export default class HomeScreen extends Component {
           <View style={{ marginTop: 10 }}>
             <Tile
 <<<<<<< HEAD
+<<<<<<< HEAD
               onPress={() => this.props.navigation.navigate("Questions", {navigation})}
+=======
+              onPress={() => console.debug("OK")}
+>>>>>>> parent of e7f1cfc... Adding questions
 =======
               onPress={() => console.debug("OK")}
 >>>>>>> parent of e7f1cfc... Adding questions
@@ -163,12 +173,21 @@ const styles = StyleSheet.create({
     width: 160,
     textAlign: "center",
     opacity: 0.8
+<<<<<<< HEAD
   },
   keyboard: {
     margin: 20,
     padding: 20,
     alignSelf: "stretch"
   },
+=======
+  },
+  keyboard: {
+    margin: 20,
+    padding: 20,
+    alignSelf: "stretch"
+  },
+>>>>>>> parent of e7f1cfc... Adding questions
   buttonContainer: {
     width: '70%',
     justifyContent: 'center',
