@@ -48,7 +48,9 @@ class Home extends Component {
   };
 
   render() {
-    if(this.state.logging == "false") {
+    console.log(this.state.logging);
+
+    if(this.state.logging == "false" || !this.state.logging) {
       return (
         <View style={styles.container}>
           <Login navigation={this.props.navigation} />
