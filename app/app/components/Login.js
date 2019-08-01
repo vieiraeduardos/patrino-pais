@@ -50,7 +50,11 @@ export default class Login extends Component {
   onLoginPress() {
     const { email, password } = this.state;
 
-    return fetch('http://200.137.131.118:1234/login', {
+    const URL = "http://35.202.173.125";
+
+    console.log(this.state);
+
+    return fetch(URL + '/mothers/login/', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

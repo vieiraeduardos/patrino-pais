@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, View, ScrollView} from 'react-native';
+import {Platform, StyleSheet, BackHandler, View, ScrollView} from 'react-native';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -82,6 +82,7 @@ export default class HomeScreen extends Component {
           centerComponent={{ text: 'Patrino', style: { color: '#fff' } }}
           rightComponent={<View>
         <Avatar
+          onPress={() => this.sair()}
           rounded
           source={require('../res/team-3-800x800.jpg')}
         />
