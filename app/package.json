@@ -31,5 +31,7 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "main": "index.js",
+  "license": "MIT"
 }

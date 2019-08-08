@@ -4,6 +4,7 @@ import {
   Alert,
   KeyboardAvoidingView,
   TouchableOpacity,
+  TouchableNativeFeedback,
   Image,
   TextInput,
   StyleSheet,
@@ -80,50 +81,53 @@ export default class Login extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View behavior="padding" style={styles.container}>
+      <View behavior="padding" style={styles.container}>
+        <KeyboardAvoidingView style={styles.keyboard}>
+
           <View style={styles.logoContainer}>
             <Image style={styles.logo} source={require("../res/heart.png")} />
             <Text style={styles.subtext}>Patrino</Text>
           </View>
-          <KeyboardAvoidingView style={styles.keyboard}>
-            <View style={styles.window}>
-              <TextInput
-                placeholder="E-mail"
-                returnKeyType="next"
-                onSubmitEditing={() => this.passwordInput.focus()}
-                keyboardType="email-address"
-                autoCapitalize="none"
-                autoCorrect={false}
-                onChangeText={(email) => this.setState({email})}
-              />
-            </View>
-            <View style={styles.window}>
-              <TextInput
-                placeholder="Senha"
-                returnKeyType="go"
-                secureTextEntry
-                ref={input => (this.passwordInput = input)}
-                onChangeText={(password) => this.setState({password})}              />
-            </View>
-            <TouchableOpacity
-              style={styles.buttonContainer}
-              onPress={this.onLoginPress.bind(this)}
-            >
-              <Text style={styles.buttonText}>Entrar</Text>
-            </TouchableOpacity>
 
-            <TouchableOpacity
-              style={styles.buttonContainer}
-              onPress={() => {
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="E-mail"
+              returnKeyType="next"
+              onSubmitEditing={() => this.passwordInput.focus()}
+              keyboardType="email-address"
+              autoCapitalize="none"
+              autoCorrect={false}
+              onChangeText={(email) => this.setState({email})}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Senha"
+              returnKeyType="go"
+              secureTextEntry
+              ref={input => (this.passwordInput = input)}
+              onChangeText={(password) => this.setState({password})}
+            />
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <TouchableNativeFeedback onPress={this.onLoginPress.bind(this)}>
+              <View style={styles.button}>
+                <Text style={styles.buttonText}>Entrar</Text>
+              </View>
+            </TouchableNativeFeedback>
+            <TouchableNativeFeedback
+                onPress={() => {
                 this.props.navigation.navigate("Register");
               }}
             >
-              <Text style={styles.buttonText}>Registrar-se</Text>
-            </TouchableOpacity>
-          </KeyboardAvoidingView>
-        </View>
+              <View style={styles.button}>
+                <Text style={styles.buttonText}>Registrar-se</Text>
+              </View>
+            </TouchableNativeFeedback>
+          </View>
 
+        </KeyboardAvoidingView>
       </View>
     );
   }
@@ -132,35 +136,32 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white"
+    backgroundColor: "white",
+    marginTop: 30,
+    marginLeft: 30,
+    marginRight: 30,
   },
   logoContainer: {
-    alignItems: "center",
     flexGrow: 1,
     justifyContent: "center",
     alignItems: "center"
   },
   logo: {
-    width: 200,
-    height: 200
+    width: 100,
+    height: 100,
   },
   subtext: {
-    color: "black",
-    marginTop: 10,
-    width: 200,
+    fontSize: 30,
+    fontWeight: "bold",
     textAlign: "center",
-    opacity: 0.8,
-    fontSize: 50
+    color: "#EF5350",
+    opacity: 0.7,
+    marginTop: 20,
   },
   keyboard: {
-    margin: 20,
-    padding: 20,
     alignSelf: "stretch"
   },
   buttonContainer: {
-    marginTop: 10,
-    backgroundColor: "#3c8dbc",
-    paddingVertical: 15
   },
   buttonText: {
     textAlign: "center",
@@ -168,10 +169,21 @@ const styles = StyleSheet.create({
     fontWeight: "700"
   },
   button: {
-    backgroundColor: "#3c8dbc",
-    paddingVertical: 15
+    marginTop: 10,
+    backgroundColor: "#F59896",
+    paddingVertical: 15,
+    borderRadius: 4,
   },
   window: {
     marginBottom: 15
+  },
+  inputContainer: {
+  },
+  input: {
+    borderColor: "#707070",
+    borderRadius: 4,
+    borderWidth: 1,
+    borderStyle: "solid",
+    marginTop: 10,
   }
 });
