@@ -1,17 +1,10 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, BackHandler, View, ScrollView} from 'react-native';
+import { BackHandler, Image, StyleSheet, Text, TouchableNativeFeedback, View } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
 import { StackNavigator } from "react-navigation";
-
-import {
-  Avatar,
-  Badge,
-  Header,
-  Tile,
-  Text
-} from "react-native-elements";
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -24,14 +17,11 @@ export default class HomeScreen extends Component {
 
   constructor() {
     super();
-
   }
 
   componentDidMount() {
     this.retrieveData()
-
   }
-
 
   async sair() {
     await AsyncStorage.setItem("email", "");
@@ -40,7 +30,6 @@ export default class HomeScreen extends Component {
 
     BackHandler.exitApp();
     return true;
-
   };
 
   async retrieveData() {
@@ -75,6 +64,7 @@ export default class HomeScreen extends Component {
 
     return (
       <View>
+<<<<<<< HEAD
         <Header
           statusBarProps={{ barStyle: 'light-content', backgroundColor: '#3D6DCC' }}
           barStyleP="light-content"
@@ -107,81 +97,119 @@ export default class HomeScreen extends Component {
               featured
               caption="Veja como é fácil ser uma doadora"
             />
+=======
+        <View style={header.background}>
+          <View style={header.container}>
+            <Text style={header.text}>Patrino</Text>
+            <Icon 
+              style={header.icon} 
+              name="perm-identity" 
+              onPress={() => this.props.navigation.navigate("Settings", {navigation})}/>
+>>>>>>> upstream/master
           </View>
+        </View>
 
-          <View style={{ marginTop: 10 }}>
-            <Tile
-              onPress={() => this.props.navigation.navigate("MyMap")}
-              imageSrc={require('../res/photo-1501511795728-df53825d742a.jpeg')}
-              title="ONDE DOAR?"
-              featured
-              caption="Localize o Banco de Leite mais próximo"
-            />
+        <View style={{marginBottom: 10}}></View>
+
+        <View style={button.container}>
+          <TouchableNativeFeedback>
+            <View style={button.icon}>
+              <Image style={button.img} source={require("../res/milk-bottle.png")} />
+            </View>
+          </TouchableNativeFeedback>
+          <View style={button.textContainer}>
+            <Text style={button.title}>Seja uma Doadora</Text>
+            <Text style={button.text}>Veja como é fácil ser uma doadora!</Text>
           </View>
-
-          <View style={{ marginTop: 10 }}>
-            <Tile
-
-              onPress={() => this.props.navigation.navigate("Questions", {navigation})}
-
-              imageSrc={require('../res/photo-1446511437394-36cdff3ae1b3.jpeg')}
-              title="TEM ALGUMA DÚVIDA?"
-              featured
-              caption="Encontre todas as respostas que precisa sobre doação"
-            />
+        </View>
+        <View style={button.container}>
+          <TouchableNativeFeedback onPress={() => this.props.navigation.navigate("MyMap")}>
+            <View style={button.icon}>
+              <Image style={{width: 41, height: 55, }} source={require("../res/location.png")} />
+            </View>
+          </TouchableNativeFeedback>
+          <View style={button.textContainer}>
+            <Text style={button.title}>Saiba onde Doar</Text>
+            <Text style={button.text}>Localize o banco de leite mais próximo!</Text>
           </View>
-
-        </ScrollView>
+        </View>
+        <View style={button.container}>
+          <TouchableNativeFeedback onPress={() => this.props.navigation.navigate("Questions", {navigation})}>
+            <View style={button.icon}>
+              <Image style={button.img} source={require("../res/question.png")} />
+            </View>
+          </TouchableNativeFeedback>
+          <View style={button.textContainer}>
+            <Text style={button.title}>Tire suas duvidas</Text>
+            <Text style={button.text}>Encontre todas as respostas que precisa sobre doação!</Text>
+          </View>
+        </View>
       </View>
     );
-
   }
-
 }
 
-const styles = StyleSheet.create({
-
-  container: {
+const header = StyleSheet.create({
+  background: {
+    backgroundColor: "#FFF",
+    width: "100%",
+    height: 54,
+    borderBottomColor: 'rgba(0, 0, 0, 0.12)',
+    borderBottomWidth: 1,
+  },
+  container : {
     flex: 1,
-    backgroundColor: "white"
-  },
-  logoContainer: {
-    alignItems: "center",
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  logo: {
-    width: 30,
-    height: 30
-  },
-  subtext: {
-    color: "black",
-    marginTop: 10,
-    width: 160,
-    textAlign: "center",
-    opacity: 0.8
-  },
-  keyboard: {
-    margin: 20,
-    padding: 20,
-    alignSelf: "stretch"
-  },
-  buttonContainer: {
-    width: '70%',
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+  	alignItems: 'center',
+    marginLeft: 37,
+    marginRight: 37,
+  },
+  text: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+  	alignItems: 'flex-start',
+    fontSize: 20,
+  	color: "#F59896",
+    fontWeight: '600',
+  },
+  icon: {
+    color: "#F59896",
+    fontSize: 25,
+  },
+});
 
+const button = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    marginLeft: 37,
+    marginRight: 37,
+    marginTop: 10,
+    marginBottom: 10,
   },
-  buttonText: {
-    backgroundColor: 'blue',
-    color: 'white'
+  icon: {
+    width: 100,
+    height: 100,
+    backgroundColor: "#F59896",
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  button: {
-    backgroundColor: "#3c8dbc",
-    paddingVertical: 15
+  img: {
+    width: 60,
+    height: 60,    
   },
-  window: {
-    marginBottom: 15
-  }
+  textContainer: {
+    flex: 1,
+    flexDirection: "column",
+    marginLeft: 10,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "normal",
+  },
+  text: {
+    color: "#707070",
+  },
 });
