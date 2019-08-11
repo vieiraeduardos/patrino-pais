@@ -20,6 +20,7 @@ import Settings from "./app/components/Settings";
 import MyMap from "./app/components/MyMap";
 import Questions from "./app/components/Questions";
 import Question from "./app/components/Question";
+import DoarScreen from "./app/components/DoarScreen";
 
 class Home extends Component {
   constructor(props) {
@@ -116,6 +117,13 @@ const App = createStackNavigator({
     screen: Question,
     navigationOptions: {
       title: "Question"
+    }
+  },
+
+  DoarScreen: {
+    screen: DoarScreen,
+    navigationOptions: {
+      title: "DoarScreen"
     }
   },
 

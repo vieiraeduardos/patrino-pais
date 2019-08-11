@@ -101,6 +101,7 @@ export default class HomeScreen extends Component {
         <ScrollView>
           <View style={{ marginTop: 10}}>
             <Tile
+              onPress={() => this.props.navigation.navigate("DoarScreen") }
               imageSrc={require('../res/suhyeon-choi-251615-unsplash.jpg')}
               title="SEJA UMA DOADORA!"
               featured
