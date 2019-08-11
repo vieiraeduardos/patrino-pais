@@ -64,48 +64,13 @@ export default class HomeScreen extends Component {
 
     return (
       <View>
-<<<<<<< HEAD
-        <Header
-          statusBarProps={{ barStyle: 'light-content', backgroundColor: '#3D6DCC' }}
-          barStyleP="light-content"
-          leftComponent={{ icon: 'menu', color: '#fff' }}
-          centerComponent={{ text: 'Patrino', style: { color: '#fff' } }}
-          rightComponent={<View>
-        <Avatar
-          onPress={() => this.sair()}
-          rounded
-          source={require('../res/team-3-800x800.jpg')}
-        />
-        <Badge
-          status="success"
-          containerStyle={{ position: 'absolute', top: -4, right: -4 }}
-        />
-      </View>
-    }
-          containerStyle={{
-            backgroundColor: '#3D6DCC',
-            justifyContent: 'space-around',
-          }}
-        />
-
-        <ScrollView>
-          <View style={{ marginTop: 10}}>
-            <Tile
-              onPress={() => this.props.navigation.navigate("DoarScreen") }
-              imageSrc={require('../res/suhyeon-choi-251615-unsplash.jpg')}
-              title="SEJA UMA DOADORA!"
-              featured
-              caption="Veja como é fácil ser uma doadora"
-            />
-=======
         <View style={header.background}>
           <View style={header.container}>
             <Text style={header.text}>Patrino</Text>
-            <Icon 
-              style={header.icon} 
-              name="perm-identity" 
+            <Icon
+              style={header.icon}
+              name="perm-identity"
               onPress={() => this.props.navigation.navigate("Settings", {navigation})}/>
->>>>>>> upstream/master
           </View>
         </View>
 
@@ -198,7 +163,7 @@ const button = StyleSheet.create({
   },
   img: {
     width: 60,
-    height: 60,    
+    height: 60,
   },
   textContainer: {
     flex: 1,
