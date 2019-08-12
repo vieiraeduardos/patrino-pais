@@ -6,13 +6,12 @@ import {
   TextInput,
   ScrollView,
   Text,
-  Button
-
+  Button,
 } from "react-native";
 
 import AsyncStorage from '@react-native-community/async-storage';
 
-export default class Register extends Component {
+export default class Edit extends Component {
   /*Removendo header padrão*/
   static navigationOptions = {
     header: null
@@ -22,6 +21,7 @@ export default class Register extends Component {
     super(props);
 
     this.state = {
+      "code": "",
       "name": "",
       "email": "",
       "password": "",
@@ -30,23 +30,36 @@ export default class Register extends Component {
     };
   }
 
-  /*Registrando um novo usuário*/
-  onRegisterPress() {
+  componentDidMount() {
+    this.onLoadCode();
+  }
+
+  /*Carregar code de usuário*/
+  async onLoadCode() {
+    var code = await AsyncStorage.getItem("code");
+
+    this.setState({
+      "code": code
+    });
+  }
+
+  /*Atualizando informações pessoais do usuário*/
+  onUpdatePress() {
+    var code = this.state.code;
     var name = this.state.name;
     var email = this.state.email;
     var password = this.state.password;
     var phone = this.state.phone;
     var address = this.state.address;
 
-    const URL = "http://35.202.173.125";
-
-    return fetch(URL + '/mothers', {
-        method: 'POST',
+    return fetch('http://192.168.1.9:1234/users', {
+        method: 'PUT',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          code: code,
           name: name,
           email: email,
           password: password,
@@ -57,7 +70,7 @@ export default class Register extends Component {
       .then((response) => response.json())
       .then((responseJson) => {
 
-        this.props.navigation.navigate("Login");
+        this.props.navigation.navigate("HomeScreen");
       })
       .catch((error) => {
         console.error(error);
@@ -66,7 +79,7 @@ export default class Register extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         <ScrollView>
           <Text>Nome</Text>
           <TextInput onChangeText={(name) => this.setState({name})} />
@@ -84,21 +97,20 @@ export default class Register extends Component {
           <TextInput onChangeText={(address) => this.setState({address})} />
 
           <Button
-            onPress={() => this.onRegisterPress()}
-            title="Cadastrar-se"
+            onPress={() => this.onUpdatePress()}
+            title="Atualizar"
             color="#841584"
             accessibilityLabel="Learn more about this purple button"
           />
-
         </ScrollView>
       </View>
     );
   }
 }
 
-/*Criando stylesheet*/
+/*Criando style sheet*/
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   }
 });
