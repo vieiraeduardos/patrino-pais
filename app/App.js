@@ -22,6 +22,7 @@ import Questions from "./app/components/Questions";
 import Question from "./app/components/Question";
 import DoarScreen from "./app/components/DoarScreen";
 import Edit from "./app/components/Edit";
+import Quiz from "./app/components/Quiz";
 
 class Home extends Component {
   constructor(props) {
@@ -99,6 +100,12 @@ const App = createStackNavigator({
     screen: Register,
     navigationOptions: {
       title: "Registro"
+    }
+  },
+  Quiz: {
+    screen: Quiz,
+    navigationOptions: {
+      title: "Quiz"
     }
   },
   Settings: {
