@@ -2,6 +2,8 @@ import React, {Component} from "react";
 
 import {ScrollView, Text, Switch, Button, Alert} from "react-native";
 
+import AsyncStorage from '@react-native-community/async-storage';
+
 export default class Quiz extends Component {
   static navigationOptions = {
     header: null
@@ -27,6 +29,8 @@ export default class Quiz extends Component {
       navigation.navigate("HomeScreen");
     } else {
       const URL = "http://35.202.173.125";
+
+      console.log(code)
 
       return fetch(URL + '/requests/', {
           method: 'POST',
@@ -66,7 +70,7 @@ export default class Quiz extends Component {
   render() {
     return(
       <ScrollView>
-        <Text>1. Você está passando por um tratamento?</Text>
+        <Text>1. Você não está passando por um tratamento?</Text>
         <Text>Sim</Text>
         <Switch
           style={{marginTop:30}}
@@ -74,7 +78,7 @@ export default class Quiz extends Component {
           value = {this.state.first}
         />
 
-        <Text>2. Você está passando por um tratamento?</Text>
+      <Text>2. Você não possui nenhuma doença transmitida pelo sangue?</Text>
         <Text>Sim</Text>
         <Switch
           style={{marginTop:30}}
@@ -82,7 +86,7 @@ export default class Quiz extends Component {
           value = {this.state.second}
         />
 
-        <Text>3. Você está passando por um tratamento?</Text>
+      <Text>3. Você possui geladeira?</Text>
         <Text>Sim</Text>
         <Switch
           style={{marginTop:30}}
@@ -90,7 +94,7 @@ export default class Quiz extends Component {
           value = {this.state.third}
         />
 
-        <Text>4. Você está passando por um tratamento?</Text>
+      <Text>4. Você tem casa de alvenaria?</Text>
         <Text>Sim</Text>
         <Switch
           style={{marginTop:30}}
@@ -98,7 +102,7 @@ export default class Quiz extends Component {
           value = {this.state.fourth}
         />
 
-        <Text>5. Você está passando por um tratamento?</Text>
+      <Text>5. Você é maior de idade?</Text>
         <Text>Sim</Text>
         <Switch
           style={{marginTop:30}}
