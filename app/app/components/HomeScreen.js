@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
-import { BackHandler, Image, StyleSheet, Text, TouchableNativeFeedback, View } from 'react-native';
+import { BackHandler, Image, StyleSheet, Text, TouchableNativeFeedback, TouchableOpacity, TouchableHighlight, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import LinearGradient from 'react-native-linear-gradient';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
-import { StackNavigator } from "react-navigation";
+import milkBottle from '../res/milk_bottle.png';
+import heartPin from '../res/heart_pin.png';
+import bubbleChat from '../res/bubble_chat.png';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -58,36 +61,50 @@ export default class HomeScreen extends Component {
           </View>
         </View>
 
-        <View style={{marginBottom: 10}}></View>
+        <View style={{marginBottom: 10}}></View>        
 
         <View style={button.container}>
-          <TouchableNativeFeedback onPress={() => this.props.navigation.navigate("Quiz", {navigation})}>
-            <View style={button.icon}>
-              <Image style={button.img} source={require("../res/milk-bottle.png")} />
-            </View>
-          </TouchableNativeFeedback>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("Quiz", {navigation})}>
+            <LinearGradient 
+            style={button.icon} 
+            start={{x: 0, y: 1}} 
+            end={{x: 1, y: 0}} 
+            colors={['#EF5350', '#F59896']}>
+              <Image style={button.img} source={milkBottle} />
+            </LinearGradient>
+          </TouchableOpacity>
           <View style={button.textContainer}>
             <Text style={button.title}>Seja uma Doadora</Text>
             <Text style={button.text}>Veja como é fácil ser uma doadora!</Text>
           </View>
         </View>
+
         <View style={button.container}>
-          <TouchableNativeFeedback onPress={() => this.props.navigation.navigate("MyMap")}>
-            <View style={button.icon}>
-              <Image style={{width: 41, height: 55, }} source={require("../res/location.png")} />
-            </View>
-          </TouchableNativeFeedback>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("MyMap")}>
+            <LinearGradient 
+            style={button.icon} 
+            start={{x: 0, y: 1}} 
+            end={{x: 1, y: 0}} 
+            colors={['#EF5350', '#F59896']}>
+              <Image style={button.img}source={heartPin} />
+            </LinearGradient>
+          </TouchableOpacity>
           <View style={button.textContainer}>
             <Text style={button.title}>Saiba onde Doar</Text>
             <Text style={button.text}>Localize o banco de leite mais próximo!</Text>
           </View>
         </View>
+
         <View style={button.container}>
-          <TouchableNativeFeedback onPress={() => this.props.navigation.navigate("Questions", {navigation})}>
-            <View style={button.icon}>
-              <Image style={button.img} source={require("../res/question.png")} />
-            </View>
-          </TouchableNativeFeedback>
+          <TouchableHighlight onPress={() => this.props.navigation.navigate("Questions", {navigation})}>
+            <LinearGradient 
+            style={button.icon} 
+            start={{x: 0, y: 1}} 
+            end={{x: 1, y: 0}} 
+            colors={['#EF5350', '#F59896']}>
+              <Image style={button.img} source={bubbleChat} />
+            </LinearGradient>
+          </TouchableHighlight>
           <View style={button.textContainer}>
             <Text style={button.title}>Tire suas duvidas</Text>
             <Text style={button.text}>Encontre todas as respostas que precisa sobre doação!</Text>
@@ -144,10 +161,16 @@ const button = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.16,
+    shadowRadius: 4,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
   },
   img: {
-    width: 60,
-    height: 60,
   },
   textContainer: {
     flex: 1,
@@ -160,5 +183,22 @@ const button = StyleSheet.create({
   },
   text: {
     color: "#707070",
+  },
+});
+
+var styles = StyleSheet.create({
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: 'Gill Sans',
+    textAlign: 'center',
+    margin: 10,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
   },
 });
