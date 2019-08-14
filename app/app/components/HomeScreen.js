@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BackHandler, Image, StyleSheet, Text, TouchableNativeFeedback, TouchableOpacity, TouchableHighlight, View } from 'react-native';
+import { BackHandler, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -56,7 +56,7 @@ export default class HomeScreen extends Component {
             <Text style={header.text}>Patrino</Text>
             <Icon
               style={header.icon}
-              name="perm-identity"
+              name="more-vert"
               onPress={() => this.props.navigation.navigate("Settings", {navigation})}/>
           </View>
         </View>
@@ -96,7 +96,7 @@ export default class HomeScreen extends Component {
         </View>
 
         <View style={button.container}>
-          <TouchableHighlight onPress={() => this.props.navigation.navigate("Questions", {navigation})}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("Questions", {navigation})}>
             <LinearGradient 
             style={button.icon} 
             start={{x: 0, y: 1}} 
@@ -104,7 +104,7 @@ export default class HomeScreen extends Component {
             colors={['#EF5350', '#F59896']}>
               <Image style={button.img} source={bubbleChat} />
             </LinearGradient>
-          </TouchableHighlight>
+          </TouchableOpacity>
           <View style={button.textContainer}>
             <Text style={button.title}>Tire suas duvidas</Text>
             <Text style={button.text}>Encontre todas as respostas que precisa sobre doação!</Text>

@@ -8,6 +8,7 @@ import {
   Text,
   Button,
 } from "react-native";
+import Header from './Header';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -80,6 +81,7 @@ export default class Edit extends Component {
   render() {
     return (
       <View>
+        <Header/>
         <ScrollView>
           <Text>Nome</Text>
           <TextInput onChangeText={(name) => this.setState({name})} />

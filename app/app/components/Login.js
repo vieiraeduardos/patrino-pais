@@ -1,18 +1,10 @@
 import React, { Component } from "react";
-
-import {
-  Alert,
-  KeyboardAvoidingView,
-  TouchableOpacity,
-  TouchableNativeFeedback,
-  Image,
-  TextInput,
-  StyleSheet,
-  Text,
-  View
-} from "react-native";
+import { Alert, Image, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import LinearGradient from 'react-native-linear-gradient';
 
 import AsyncStorage from '@react-native-community/async-storage';
+
+import heart from '../res/heart.png';
 
 export default class Login extends Component {
   constructor() {
@@ -81,54 +73,71 @@ export default class Login extends Component {
 
   render() {
     return (
-      <View behavior="padding" style={styles.container}>
-        <KeyboardAvoidingView style={styles.keyboard}>
 
-          <View style={styles.logoContainer}>
-            <Image style={styles.logo} source={require("../res/heart.png")} />
-            <Text style={styles.subtext}>Patrino</Text>
+        <KeyboardAvoidingView 
+          behavior="padding"
+          enabled={Platform.OS == 'ios'}
+          style={styles.container}>
+
+          <View style={styles.box}>
+            <Image source={heart}/>
+            <Text style={styles.title}>Patrino</Text>
           </View>
 
-          <View style={styles.inputContainer}>
+          <View style={styles.box}>
             <TextInput
-              style={styles.input}
-              placeholder="E-mail"
-              returnKeyType="next"
-              onSubmitEditing={() => this.passwordInput.focus()}
-              keyboardType="email-address"
               autoCapitalize="none"
               autoCorrect={false}
+              returnKeyType="next"
+              keyboardType="email-address"
+              placeholder="Digite seu e-mail"
+              placeholderTextColor="#999"
+              style={styles.input}
+              onSubmitEditing={() => this.passwordInput.focus()}
               onChangeText={(email) => this.setState({email})}
             />
             <TextInput
-              style={styles.input}
-              placeholder="Senha"
+              autoCapitalize="none"
+              autoCorrect={false}
               returnKeyType="go"
               secureTextEntry
+              placeholder="Digite sua senha"
+              placeholderTextColor="#999"
+              style={styles.input}
               ref={input => (this.passwordInput = input)}
               onChangeText={(password) => this.setState({password})}
             />
           </View>
 
-          <View style={styles.buttonContainer}>
-            <TouchableNativeFeedback onPress={this.onLoginPress.bind(this)}>
-              <View style={styles.button}>
+          <View style={styles.box}>
+            <TouchableOpacity 
+              onPress={this.onLoginPress.bind(this)}
+              style={{alignSelf: 'stretch'}}>
+              <LinearGradient 
+                style={styles.button}
+                start={{x: 0, y: 0}} 
+                end={{x: 1, y: 1}} 
+                colors={['#EF5350', '#F59896']}>
                 <Text style={styles.buttonText}>Entrar</Text>
-              </View>
-            </TouchableNativeFeedback>
-            <TouchableNativeFeedback
-                onPress={() => {
-                this.props.navigation.navigate("Register");
-              }}
-            >
-              <View style={styles.button}>
+              </LinearGradient>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+              onPress={() => {this.props.navigation.navigate("Register");}} 
+              style={{alignSelf: 'stretch'}}>
+              <LinearGradient 
+                style={styles.button}
+                start={{x: 0, y: 0}} 
+                end={{x: 1, y: 1}} 
+                colors={['#EF5350', '#F59896']}>
                 <Text style={styles.buttonText}>Registrar-se</Text>
-              </View>
-            </TouchableNativeFeedback>
+              </LinearGradient>
+            </TouchableOpacity>
           </View>
 
+          
+
         </KeyboardAvoidingView>
-      </View>
     );
   }
 }
@@ -136,54 +145,58 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
-    marginTop: 30,
-    marginLeft: 30,
-    marginRight: 30,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
+    padding: 30,
   },
-  logoContainer: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center"
+
+  box: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'stretch',
+    alignItems: 'center',
   },
-  logo: {
-    width: 100,
-    height: 100,
-  },
-  subtext: {
-    fontSize: 30,
-    fontWeight: "bold",
-    textAlign: "center",
-    color: "#EF5350",
-    opacity: 0.7,
-    marginTop: 20,
-  },
-  keyboard: {
-    alignSelf: "stretch"
-  },
-  buttonContainer: {
-  },
-  buttonText: {
-    textAlign: "center",
-    color: "#FFF",
-    fontWeight: "700"
-  },
-  button: {
+
+  title: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: '#EF5350',
     marginTop: 10,
-    backgroundColor: "#F59896",
-    paddingVertical: 15,
-    borderRadius: 4,
   },
-  window: {
-    marginBottom: 15
-  },
-  inputContainer: {
-  },
+
   input: {
-    borderColor: "#707070",
-    borderRadius: 4,
+    height: 46,
+    alignSelf: 'stretch',
+    backgroundColor: '#FFF',
     borderWidth: 1,
-    borderStyle: "solid",
+    borderColor: '#DDD',
+    borderRadius: 4,
     marginTop: 10,
-  }
+    paddingHorizontal: 15,
+  },
+
+  button: {    
+    height: 46,
+    backgroundColor: '#DF4723',
+    borderRadius: 4,
+    marginTop: 10,
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.16,
+    shadowRadius: 4,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+  },
+
+  buttonText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
 });

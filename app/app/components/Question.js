@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import {
-  Header,
+  
   Avatar,
   Badge,
   Card,
@@ -16,6 +16,8 @@ import {
   ThemeProvider
 
 } from "react-native-elements";
+
+import Header from './Header';
 
 export default class Question extends Component {
   static navigationOptions = {
@@ -26,28 +28,7 @@ export default class Question extends Component {
   console.debug(this.props.navigation.state.params.item);
    return (
      <ThemeProvider>
-       <Header
-         statusBarProps={{ barStyle: 'light-content', backgroundColor: '#3D6DCC' }}
-         barStyleP="light-content"
-         leftComponent={{ icon: 'arrow-back', color: '#fff' }}
-         centerComponent={{ text: 'Patrino', style: { color: '#fff' } }}
-         rightComponent={<View>
-       <Avatar
-         rounded
-         source={require('../res/heart.png')}
-       />
-       <Badge
-         status="success"
-         containerStyle={{ position: 'absolute', top: -4, right: -4 }}
-       />
-     </View>
-   }
-         containerStyle={{
-           backgroundColor: '#3D6DCC',
-           justifyContent: 'space-around',
-         }}
-       />
-
+       <Header/>
        <ScrollView>
         <Card title={this.props.navigation.state.params.item.title}>
           <Text style={{marginBottom: 10}}>
