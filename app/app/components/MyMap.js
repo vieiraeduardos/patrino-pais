@@ -3,7 +3,8 @@ import React, {Component} from "react";
 import MapView from 'react-native-maps';
 
 
-import {Header, Avatar, Badge, ThemeProvider} from "react-native-elements";
+import { Avatar, Badge, ThemeProvider} from "react-native-elements";
+import Header from './Header';
 
 import MapViewDirections from 'react-native-maps-directions';
 import getDirections from 'react-native-google-maps-directions'
@@ -183,27 +184,7 @@ export default class MyMap extends Component {
   render() {
    return (
      <ThemeProvider>
-       <Header
-         statusBarProps={{ barStyle: 'light-content', backgroundColor: '#3D6DCC' }}
-         barStyleP="light-content"
-         leftComponent={{ icon: 'arrow-back', color: '#fff' }}
-         centerComponent={{ text: 'Patrino', style: { color: '#fff' } }}
-         rightComponent={<View>
-       <Avatar
-         rounded
-         source={require('../res/heart.png')}
-       />
-       <Badge
-         status="success"
-         containerStyle={{ position: 'absolute', top: -4, right: -4 }}
-       />
-     </View>
-   }
-         containerStyle={{
-           backgroundColor: '#3D6DCC',
-           justifyContent: 'space-around',
-         }}
-       />
+       <Header/>
        <View style={styles.container}>
 
             <MapView

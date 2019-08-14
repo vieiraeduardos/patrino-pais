@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 
 import {
-  Header,
   Avatar,
   Badge,
   Card,
@@ -16,6 +15,8 @@ import {
   ThemeProvider
 
 } from "react-native-elements";
+
+import Header from './Header';
 
 export default class Questions extends Component {
   static navigationOptions = {
@@ -42,28 +43,7 @@ export default class Questions extends Component {
 
    return (
      <ThemeProvider>
-       <Header
-         statusBarProps={{ barStyle: 'light-content', backgroundColor: '#3D6DCC' }}
-         barStyleP="light-content"
-         leftComponent={{ icon: 'arrow-back', color: '#fff' }}
-         centerComponent={{ text: 'Patrino', style: { color: '#fff' } }}
-         rightComponent={<View>
-       <Avatar
-         rounded
-         source={require('../res/heart.png')}
-       />
-       <Badge
-         status="success"
-         containerStyle={{ position: 'absolute', top: -4, right: -4 }}
-       />
-     </View>
-   }
-         containerStyle={{
-           backgroundColor: '#3D6DCC',
-           justifyContent: 'space-around',
-         }}
-       />
-
+       <Header/>
        <FlatList
         data={questions}
         keyExtractor={(item, index) => item.title}

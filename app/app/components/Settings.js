@@ -1,16 +1,10 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  View,
-  Alert,
-  TextInput,
-  ScrollView,
-  Text,
-  Button,
-  BackHandler
-} from "react-native";
+import { BackHandler, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import LinearGradient from 'react-native-linear-gradient';
 
 import AsyncStorage from '@react-native-community/async-storage';
+
+import Header from './Header';
 
 export default class Settings extends Component {
   /*Removendo header padrão*/
@@ -57,22 +51,33 @@ export default class Settings extends Component {
     const navigation = this.props.navigation.state.params.navigation;
 
     return (
-      <View>
+      <View style={{flex: 1}}>
+        <Header navigation={this.props.navigation}/>
+        <View style={styles.container}>
+          <TouchableOpacity 
+            onPress={() => navigation.navigate("Edit") }
+            style={{alignSelf: 'stretch'}}>
+            <LinearGradient 
+              style={styles.button}
+              start={{x: 0, y: 0}} 
+              end={{x: 1, y: 1}} 
+              colors={['#EF5350', '#F59896']}>
+              <Text style={styles.buttonText}>Editar perfil</Text>
+            </LinearGradient>
+          </TouchableOpacity>
 
-        <Button
-          onPress={() => navigation.navigate("Edit") }
-          title="Editar perfil"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-        />
-
-        <Button
-          onPress={() => this.sair() }
-          title="Sair"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-        />
-
+          <TouchableOpacity 
+            onPress={() => this.sair() }
+            style={{alignSelf: 'stretch'}}>
+            <LinearGradient 
+              style={styles.button}
+              start={{x: 0, y: 0}} 
+              end={{x: 1, y: 1}} 
+              colors={['#EF5350', '#F59896']}>
+              <Text style={styles.buttonText}>Sair</Text>
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -82,5 +87,33 @@ export default class Settings extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
+    padding: 30,
+  },
+
+  button: {    
+    height: 46,
+    backgroundColor: '#DF4723',
+    borderRadius: 4,
+    marginTop: 10,
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.16,
+    shadowRadius: 4,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+  },
+
+  buttonText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
 });

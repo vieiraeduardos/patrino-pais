@@ -9,6 +9,7 @@ import {
   Button
 
 } from "react-native";
+import Header from './Header';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -67,6 +68,7 @@ export default class Register extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Header/>
         <ScrollView>
           <Text>Nome</Text>
           <TextInput onChangeText={(name) => this.setState({name})} />
