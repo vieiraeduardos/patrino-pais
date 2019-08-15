@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 import {ScrollView, Text, Switch, Button, Alert, View} from "react-native";
 
-import Header from './Header';
+import BackHeader from './BackHeader';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -70,10 +70,12 @@ export default class Quiz extends Component {
   }
 
   render() {
+    const navigation = this.props.navigation.state.params.navigation;
+
     return(
       <View>
-        <Header/>
-      
+        <BackHeader navigation={navigation} target={"HomeScreen"}/>
+
         <ScrollView>
           <Text>1. Você não está passando por um tratamento?</Text>
           <Text>Sim</Text>

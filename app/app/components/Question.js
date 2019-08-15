@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import {
-  
+
   Avatar,
   Badge,
   Card,
@@ -17,7 +17,7 @@ import {
 
 } from "react-native-elements";
 
-import Header from './Header';
+import BackHeader from './BackHeader';
 
 export default class Question extends Component {
   static navigationOptions = {
@@ -25,10 +25,12 @@ export default class Question extends Component {
   };
 
   render() {
-  console.debug(this.props.navigation.state.params.item);
+    const navigation = this.props.navigation.state.params.navigation;
+
    return (
      <ThemeProvider>
-       <Header/>
+       <BackHeader navigation={navigation} target="Questions"/>
+
        <ScrollView>
         <Card title={this.props.navigation.state.params.item.title}>
           <Text style={{marginBottom: 10}}>
