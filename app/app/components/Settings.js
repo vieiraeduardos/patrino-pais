@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
-import Header from './Header';
+import BackHeader from './BackHeader';
 
 export default class Settings extends Component {
   /*Removendo header padrão*/
@@ -52,27 +52,27 @@ export default class Settings extends Component {
 
     return (
       <View style={{flex: 1}}>
-        <Header navigation={this.props.navigation}/>
+        <BackHeader navigation={this.props.navigation} target={"HomeScreen"}/>
         <View style={styles.container}>
-          <TouchableOpacity 
-            onPress={() => navigation.navigate("Edit") }
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Edit", {navigation}) }
             style={{alignSelf: 'stretch'}}>
-            <LinearGradient 
+            <LinearGradient
               style={styles.button}
-              start={{x: 0, y: 0}} 
-              end={{x: 1, y: 1}} 
+              start={{x: 0, y: 0}}
+              end={{x: 1, y: 1}}
               colors={['#EF5350', '#F59896']}>
               <Text style={styles.buttonText}>Editar perfil</Text>
             </LinearGradient>
           </TouchableOpacity>
 
-          <TouchableOpacity 
+          <TouchableOpacity
             onPress={() => this.sair() }
             style={{alignSelf: 'stretch'}}>
-            <LinearGradient 
+            <LinearGradient
               style={styles.button}
-              start={{x: 0, y: 0}} 
-              end={{x: 1, y: 1}} 
+              start={{x: 0, y: 0}}
+              end={{x: 1, y: 1}}
               colors={['#EF5350', '#F59896']}>
               <Text style={styles.buttonText}>Sair</Text>
             </LinearGradient>
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     padding: 30,
   },
 
-  button: {    
+  button: {
     height: 46,
     backgroundColor: '#DF4723',
     borderRadius: 4,

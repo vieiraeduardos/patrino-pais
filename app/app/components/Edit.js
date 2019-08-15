@@ -8,7 +8,7 @@ import {
   Text,
   Button,
 } from "react-native";
-import Header from './Header';
+import BackHeader from './BackHeader';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -79,9 +79,12 @@ export default class Edit extends Component {
   }
 
   render() {
+    const navigation = this.props.navigation.state.params.navigation;
+
     return (
+
       <View>
-        <Header/>
+        <BackHeader navigation={navigation} target={"Settings"}/>
         <ScrollView>
           <Text>Nome</Text>
           <TextInput onChangeText={(name) => this.setState({name})} />

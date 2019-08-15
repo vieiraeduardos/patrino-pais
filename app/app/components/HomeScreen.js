@@ -61,14 +61,14 @@ export default class HomeScreen extends Component {
           </View>
         </View>
 
-        <View style={{marginBottom: 10}}></View>        
+        <View style={{marginBottom: 10}}></View>
 
         <View style={button.container}>
           <TouchableOpacity onPress={() => this.props.navigation.navigate("Quiz", {navigation})}>
-            <LinearGradient 
-            style={button.icon} 
-            start={{x: 0, y: 1}} 
-            end={{x: 1, y: 0}} 
+            <LinearGradient
+            style={button.icon}
+            start={{x: 0, y: 1}}
+            end={{x: 1, y: 0}}
             colors={['#EF5350', '#F59896']}>
               <Image style={button.img} source={milkBottle} />
             </LinearGradient>
@@ -80,11 +80,11 @@ export default class HomeScreen extends Component {
         </View>
 
         <View style={button.container}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("MyMap")}>
-            <LinearGradient 
-            style={button.icon} 
-            start={{x: 0, y: 1}} 
-            end={{x: 1, y: 0}} 
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("MyMap", {navigation})}>
+            <LinearGradient
+            style={button.icon}
+            start={{x: 0, y: 1}}
+            end={{x: 1, y: 0}}
             colors={['#EF5350', '#F59896']}>
               <Image style={button.img}source={heartPin} />
             </LinearGradient>
@@ -97,10 +97,10 @@ export default class HomeScreen extends Component {
 
         <View style={button.container}>
           <TouchableOpacity onPress={() => this.props.navigation.navigate("Questions", {navigation})}>
-            <LinearGradient 
-            style={button.icon} 
-            start={{x: 0, y: 1}} 
-            end={{x: 1, y: 0}} 
+            <LinearGradient
+            style={button.icon}
+            start={{x: 0, y: 1}}
+            end={{x: 1, y: 0}}
             colors={['#EF5350', '#F59896']}>
               <Image style={button.img} source={bubbleChat} />
             </LinearGradient>

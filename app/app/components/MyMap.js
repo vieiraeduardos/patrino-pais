@@ -4,7 +4,7 @@ import MapView from 'react-native-maps';
 
 
 import { Avatar, Badge, ThemeProvider} from "react-native-elements";
-import Header from './Header';
+import BackHeader from './BackHeader';
 
 import MapViewDirections from 'react-native-maps-directions';
 import getDirections from 'react-native-google-maps-directions'
@@ -182,9 +182,11 @@ export default class MyMap extends Component {
 
 
   render() {
+  const navigation = this.props.navigation.state.params.navigation;
+
    return (
      <ThemeProvider>
-       <Header/>
+       <BackHeader navigation={navigation} target={"HomeScreen"}/>
        <View style={styles.container}>
 
             <MapView

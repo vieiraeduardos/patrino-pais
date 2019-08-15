@@ -9,7 +9,7 @@ import {
   Button
 
 } from "react-native";
-import Header from './Header';
+import BackHeader from './BackHeader';
 
 import AsyncStorage from '@react-native-community/async-storage';
 

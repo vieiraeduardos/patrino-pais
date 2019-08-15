@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function Header() {
-  return (
-    <View style={header.background}>
-      <View style={header.container}>
-        <Icon
-          style={header.icon}
-          name="arrow-back"/>
-        <Text style={header.text}>Patrino</Text>
+export default class BackHeader extends Component {
+  render() {
+    return (
+      <View style={header.background}>
+        <View style={header.container}>
+          <Icon
+            onPress={() => this.props.navigation.navigate(this.props.target) }
+            style={header.icon}
+            name="arrow-back"/>
+          <Text style={header.text}>Patrino</Text>
+        </View>
       </View>
-    </View>
-  );
+    );
+  }
 };
 
 const header = StyleSheet.create({
