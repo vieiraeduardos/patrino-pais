@@ -23,6 +23,7 @@ import Question from "./app/components/Question";
 import DoarScreen from "./app/components/DoarScreen";
 import Edit from "./app/components/Edit";
 import Quiz from "./app/components/Quiz";
+import StatusView from "./app/views/StatusView";
 
 class Home extends Component {
   constructor(props) {
@@ -138,6 +139,13 @@ const App = createStackNavigator({
     screen: DoarScreen,
     navigationOptions: {
       title: "DoarScreen"
+    }
+  },
+
+  StatusView: {
+    screen: StatusView,
+    navigationOptions: {
+      title: "StatusView"
     }
   },
 
