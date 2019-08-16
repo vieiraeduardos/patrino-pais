@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 
 import {ScrollView, Text, Switch, Button, Alert, View} from "react-native";
+import { StyleSheet, TouchableOpacity, TouchableHighlight } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 import BackHeader from './BackHeader';
 
@@ -18,8 +20,9 @@ export default class Quiz extends Component {
 
     var isGiver = true;
 
+    console.log(this.state);
+
     for(index in result) {
-      console.log(result[index])
       if(result[index] == false) {
         isGiver = false;
       }
@@ -78,44 +81,146 @@ export default class Quiz extends Component {
 
         <ScrollView>
           <Text>1. Você não está passando por um tratamento?</Text>
-          <Text>Sim</Text>
-          <Switch
-            style={{marginTop:30}}
-            onValueChange = {(value) => this.setState({first: value})}
-            value = {this.state.first}
-          />
+
+            <View style={button.container}>
+
+              <LinearGradient
+                style={button.border}
+                start={{x: 1, y: 0}}
+                end={{x: 0, y: 1}}
+                colors={['#EF5350', '#F59896']}>
+                <TouchableOpacity
+                  style={this.state.first ? button.empty : button.content}
+                  onPress={() => this.setState({first: true})}>
+                  <Text style={this.state.first ? button.textPress : button.text}>Sim</Text>
+                </TouchableOpacity>
+              </LinearGradient>
+
+              <LinearGradient
+                style={button.border}
+                start={{x: 1, y: 0}}
+                end={{x: 0, y: 1}}
+                colors={['#EF5350', '#F59896']}>
+                <TouchableOpacity
+                  style={!this.state.first ? button.empty : button.content}
+                  onPress={() => this.setState({first: false})}>
+                  <Text style={!this.state.first ? button.textPress : button.text}>Não</Text>
+                </TouchableOpacity>
+              </LinearGradient>
+            </View>
 
         <Text>2. Você não possui nenhuma doença transmitida pelo sangue?</Text>
-          <Text>Sim</Text>
-          <Switch
-            style={{marginTop:30}}
-            onValueChange = {(value) => this.setState({second: value})}
-            value = {this.state.second}
-          />
+          <View style={button.container}>
+
+            <LinearGradient
+              style={button.border}
+              start={{x: 1, y: 0}}
+              end={{x: 0, y: 1}}
+              colors={['#EF5350', '#F59896']}>
+              <TouchableOpacity
+                style={this.state.second ? button.empty : button.content}
+                onPress={() => this.setState({second: true})}>
+                <Text style={this.state.second ? button.textPress : button.text}>Sim</Text>
+              </TouchableOpacity>
+            </LinearGradient>
+
+            <LinearGradient
+              style={button.border}
+              start={{x: 1, y: 0}}
+              end={{x: 0, y: 1}}
+              colors={['#EF5350', '#F59896']}>
+              <TouchableOpacity
+                style={!this.state.second ? button.empty : button.content}
+                onPress={() => this.setState({second: false})}>
+                <Text style={!this.state.second ? button.textPress : button.text}>Não</Text>
+              </TouchableOpacity>
+            </LinearGradient>
+          </View>
 
         <Text>3. Você possui geladeira?</Text>
-          <Text>Sim</Text>
-          <Switch
-            style={{marginTop:30}}
-            onValueChange = {(value) => this.setState({third: value})}
-            value = {this.state.third}
-          />
+          <View style={button.container}>
+
+            <LinearGradient
+              style={button.border}
+              start={{x: 1, y: 0}}
+              end={{x: 0, y: 1}}
+              colors={['#EF5350', '#F59896']}>
+              <TouchableOpacity
+                style={this.state.third ? button.empty : button.content}
+                onPress={() => this.setState({third: true})}>
+                <Text style={this.state.third ? button.textPress : button.text}>Sim</Text>
+              </TouchableOpacity>
+            </LinearGradient>
+
+            <LinearGradient
+              style={button.border}
+              start={{x: 1, y: 0}}
+              end={{x: 0, y: 1}}
+              colors={['#EF5350', '#F59896']}>
+              <TouchableOpacity
+                style={!this.state.third ? button.empty : button.content}
+                onPress={() => this.setState({third: false})}>
+                <Text style={!this.state.third ? button.textPress : button.text}>Não</Text>
+              </TouchableOpacity>
+            </LinearGradient>
+          </View>
 
         <Text>4. Você tem casa de alvenaria?</Text>
           <Text>Sim</Text>
-          <Switch
-            style={{marginTop:30}}
-            onValueChange = {(value) => this.setState({fourth: value})}
-            value = {this.state.fourth}
-          />
+            <View style={button.container}>
+
+              <LinearGradient
+                style={button.border}
+                start={{x: 1, y: 0}}
+                end={{x: 0, y: 1}}
+                colors={['#EF5350', '#F59896']}>
+                <TouchableOpacity
+                  style={this.state.fourth ? button.empty : button.content}
+                  onPress={() => this.setState({fourth: true})}>
+                  <Text style={this.state.fourth ? button.textPress : button.text}>Sim</Text>
+                </TouchableOpacity>
+              </LinearGradient>
+
+              <LinearGradient
+                style={button.border}
+                start={{x: 1, y: 0}}
+                end={{x: 0, y: 1}}
+                colors={['#EF5350', '#F59896']}>
+                <TouchableOpacity
+                  style={!this.state.fourth ? button.empty : button.content}
+                  onPress={() => this.setState({fourth: false})}>
+                  <Text style={!this.state.fourth ? button.textPress : button.text}>Não</Text>
+                </TouchableOpacity>
+              </LinearGradient>
+            </View>
 
         <Text>5. Você é maior de idade?</Text>
-          <Text>Sim</Text>
-          <Switch
-            style={{marginTop:30}}
-            onValueChange = {(value) => this.setState({fifth: value})}
-            value = {this.state.fifth}
-          />
+          <View style={button.container}>
+
+            <LinearGradient
+              style={button.border}
+              start={{x: 1, y: 0}}
+              end={{x: 0, y: 1}}
+              colors={['#EF5350', '#F59896']}>
+              <TouchableOpacity
+                style={this.state.fifth ? button.empty : button.content}
+                onPress={() => this.setState({fifth: true})}>
+                <Text style={this.state.fifth ? button.textPress : button.text}>Sim</Text>
+              </TouchableOpacity>
+            </LinearGradient>
+
+            <LinearGradient
+              style={button.border}
+              start={{x: 1, y: 0}}
+              end={{x: 0, y: 1}}
+              colors={['#EF5350', '#F59896']}>
+              <TouchableOpacity
+                style={!this.state.fifth ? button.empty : button.content}
+                onPress={() => this.setState({fifth: false})}>
+                <Text style={!this.state.fifth ? button.textPress : button.text}>Não</Text>
+              </TouchableOpacity>
+            </LinearGradient>
+          </View>
 
           <Button
             onPress={() => this.onAnalize()}
@@ -129,3 +234,62 @@ export default class Quiz extends Component {
     );
   }
 }
+
+const button = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  border: {
+    width: 100,
+    height: 50,
+    borderRadius: 6,
+
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    margin: 10,
+
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.16,
+    shadowRadius: 4,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+  },
+
+  content: {
+    width: 96,
+    height: 46,
+    borderRadius: 4,
+    backgroundColor: '#FFF',
+
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  text: {
+    textAlign: 'center',
+    color: '#F59896',
+  },
+
+  textPress: {
+    textAlign: 'center',
+    color: '#FFF',
+  },
+
+  empty: {
+    width: 96,
+    height: 46,
+    borderRadius: 4,
+    backgroundColor: '#FFFFFF00',
+
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
