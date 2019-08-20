@@ -31,7 +31,6 @@ const header = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
   	alignItems: 'center',
-    marginLeft: 37,
     marginRight: 37,
   },
   text: {
@@ -44,8 +43,11 @@ const header = StyleSheet.create({
     fontWeight: '600',
   },
   icon: {
+    width: 37,
     color: "#F59896",
     fontSize: 25,
     marginRight: 15,
+    marginLeft: 20,
+    textAlign: 'center',
   },
 });
