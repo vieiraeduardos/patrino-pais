@@ -1,7 +1,6 @@
 import React, {Component} from "react";
-
-import {ScrollView, Text, Switch, Button, Alert, View} from "react-native";
-import { StyleSheet, TouchableOpacity, TouchableHighlight } from 'react-native';
+import {ScrollView, Text, Alert, View} from "react-native";
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import BackHeader from './BackHeader';
@@ -79,11 +78,10 @@ export default class Quiz extends Component {
       <View>
         <BackHeader navigation={navigation} target={"HomeScreen"}/>
 
-        <ScrollView>
-          <Text>1. Você não está passando por um tratamento?</Text>
-
-            <View style={button.container}>
-
+        <ScrollView >
+          <View style={{marginLeft: 30, marginRight: 30, marginTop: 20}}>
+          <Text>1. Você está passando por algum tratamento de saúde?</Text>
+          <View style={button.container}>
               <LinearGradient
                 style={button.border}
                 start={{x: 1, y: 0}}
@@ -95,7 +93,6 @@ export default class Quiz extends Component {
                   <Text style={this.state.first ? button.textPress : button.text}>Sim</Text>
                 </TouchableOpacity>
               </LinearGradient>
-
               <LinearGradient
                 style={button.border}
                 start={{x: 1, y: 0}}
@@ -109,9 +106,8 @@ export default class Quiz extends Component {
               </LinearGradient>
             </View>
 
-        <Text>2. Você não possui nenhuma doença transmitida pelo sangue?</Text>
+          <Text>2. Você possui alguma doença transmissível pelo sangue?</Text>
           <View style={button.container}>
-
             <LinearGradient
               style={button.border}
               start={{x: 1, y: 0}}
@@ -123,7 +119,6 @@ export default class Quiz extends Component {
                 <Text style={this.state.second ? button.textPress : button.text}>Sim</Text>
               </TouchableOpacity>
             </LinearGradient>
-
             <LinearGradient
               style={button.border}
               start={{x: 1, y: 0}}
@@ -137,9 +132,8 @@ export default class Quiz extends Component {
             </LinearGradient>
           </View>
 
-        <Text>3. Você possui geladeira?</Text>
+          <Text>3. Você possui geladeira?</Text>
           <View style={button.container}>
-
             <LinearGradient
               style={button.border}
               start={{x: 1, y: 0}}
@@ -151,7 +145,6 @@ export default class Quiz extends Component {
                 <Text style={this.state.third ? button.textPress : button.text}>Sim</Text>
               </TouchableOpacity>
             </LinearGradient>
-
             <LinearGradient
               style={button.border}
               start={{x: 1, y: 0}}
@@ -165,10 +158,8 @@ export default class Quiz extends Component {
             </LinearGradient>
           </View>
 
-        <Text>4. Você tem casa de alvenaria?</Text>
-          <Text>Sim</Text>
-            <View style={button.container}>
-
+          <Text>4. Você tem casa de alvenaria?</Text>
+          <View style={button.container}>
               <LinearGradient
                 style={button.border}
                 start={{x: 1, y: 0}}
@@ -180,7 +171,6 @@ export default class Quiz extends Component {
                   <Text style={this.state.fourth ? button.textPress : button.text}>Sim</Text>
                 </TouchableOpacity>
               </LinearGradient>
-
               <LinearGradient
                 style={button.border}
                 start={{x: 1, y: 0}}
@@ -194,9 +184,8 @@ export default class Quiz extends Component {
               </LinearGradient>
             </View>
 
-        <Text>5. Você é maior de idade?</Text>
+          <Text>5. Você é maior de idade?</Text>
           <View style={button.container}>
-
             <LinearGradient
               style={button.border}
               start={{x: 1, y: 0}}
@@ -208,7 +197,6 @@ export default class Quiz extends Component {
                 <Text style={this.state.fifth ? button.textPress : button.text}>Sim</Text>
               </TouchableOpacity>
             </LinearGradient>
-
             <LinearGradient
               style={button.border}
               start={{x: 1, y: 0}}
@@ -222,18 +210,54 @@ export default class Quiz extends Component {
             </LinearGradient>
           </View>
 
-          <Button
+          <TouchableOpacity
             onPress={() => this.onAnalize()}
-            title="Verificar"
-            color="#841584"
-            accessibilityLabel="Learn more about this purple button"
-          />
-
+            style={{alignSelf: 'stretch'}}>
+            <LinearGradient
+              style={styles.button}
+              start={{x: 0, y: 0}}
+              end={{x: 1, y: 1}}
+              colors={['#EF5350', '#F59896']}>
+              <Text style={styles.buttonText}>Enviar</Text>
+            </LinearGradient>
+          </TouchableOpacity>
+          </View>
         </ScrollView>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+
+  button: {
+    height: 46,
+    backgroundColor: '#DF4723',
+    borderRadius: 4,
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.16,
+    shadowRadius: 4,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+
+    marginTop: 10,
+    marginBottom: 100,
+  },
+
+  buttonText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+});
+
+
 
 const button = StyleSheet.create({
   container: {
@@ -241,11 +265,14 @@ const button = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+
+    marginTop: 10,
+    marginBottom: 10,
   },
 
   border: {
     width: 100,
-    height: 50,
+    height: 35,
     borderRadius: 6,
 
     justifyContent: 'center',
@@ -265,7 +292,7 @@ const button = StyleSheet.create({
 
   content: {
     width: 96,
-    height: 46,
+    height: 31,
     borderRadius: 4,
     backgroundColor: '#FFF',
 
