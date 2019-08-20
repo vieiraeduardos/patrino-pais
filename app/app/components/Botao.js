@@ -9,98 +9,46 @@ import milkBottle from '../res/milk_bottle.png';
 import heartPin from '../res/heart_pin.png';
 import bubbleChat from '../res/bubble_chat.png';
 
-import Botao from "./Botao";
-
-export default class HomeScreen extends Component {
-  static navigationOptions = {
-    header: null
-  };
-
-  state = {
-    logging: "false",
-    itWasRequested: false
-  };
-
-  constructor() {
-    super();
-  }
-
-  componentDidMount() {
-    this.retrieveData()
-  }
-
-  async sair() {
-    await AsyncStorage.setItem("email", "");
-    await AsyncStorage.setItem("password", "");
-    await AsyncStorage.setItem("logging", "false");
-
-    BackHandler.exitApp();
-    return true;
-  };
-
-  async retrieveData() {
-    const value = await AsyncStorage.getItem('logging');
-    const email = await AsyncStorage.getItem('email');
-
-    console.debug(value);
-
-    this.setState({
-      logging: value
-    })
-  };
-
+export default class Botao extends Component {
   render() {
     const navigation = this.props.navigation;
-
-    return (
-      <View>
-        <View style={header.background}>
-          <View style={header.container}>
-            <Text style={header.text}>Patrino</Text>
-            <Icon
-              style={header.icon}
-              name="more-vert"
-              onPress={() => this.props.navigation.navigate("Settings", {navigation})}/>
-          </View>
-        </View>
-
-        <View style={{marginBottom: 10}}></View>
-
-        <Botao itWasRequested={this.state.itWasRequested} navigation={this.props.navigation}/>
-
+    if(this.props.itWasRequested) {
+      return (
         <View style={button.container}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("MyMap", {navigation})}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("Quiz", {navigation})}>
             <LinearGradient
             style={button.icon}
             start={{x: 0, y: 1}}
             end={{x: 1, y: 0}}
             colors={['#EF5350', '#F59896']}>
-              <Image style={button.img}source={heartPin} />
+              <Image style={button.img} source={milkBottle} />
             </LinearGradient>
           </TouchableOpacity>
           <View style={button.textContainer}>
-            <Text style={button.title}>Saiba onde Doar</Text>
-            <Text style={button.text}>Localize o banco de leite mais próximo!</Text>
+            <Text style={button.title}>Seja uma Doadora</Text>
+            <Text style={button.text}>Veja como é fácil ser uma doadora!</Text>
           </View>
         </View>
-
+      );
+    } else {
+      return (
         <View style={button.container}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("Questions", {navigation})}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("StatusView", {navigation})}>
             <LinearGradient
             style={button.icon}
             start={{x: 0, y: 1}}
             end={{x: 1, y: 0}}
             colors={['#EF5350', '#F59896']}>
-              <Image style={button.img} source={bubbleChat} />
+              <Image style={button.img} source={milkBottle} />
             </LinearGradient>
           </TouchableOpacity>
           <View style={button.textContainer}>
-            <Text style={button.title}>Tire suas duvidas</Text>
-            <Text style={button.text}>Encontre todas as respostas que precisa sobre doação!</Text>
+            <Text style={button.title}>Acompanhe suas requisições</Text>
+            <Text style={button.text}>Veja os status das suas requisições!</Text>
           </View>
         </View>
-      </View>
-    );
+      );
+    }
   }
 }
 
