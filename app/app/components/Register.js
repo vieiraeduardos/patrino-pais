@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import {
   StyleSheet,
   View,
-  Alert,
   TextInput,
   ScrollView,
   Text,
-  Button
-
+  TouchableOpacity
 } from "react-native";
 import BackHeader from './BackHeader';
+import LinearGradient from 'react-native-linear-gradient';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -66,41 +65,137 @@ export default class Register extends Component {
   }
 
   render() {
+    const navigation = this.props.navigation.state.params.navigation;
+    
     return (
       <View style={styles.container}>
-        <Header/>
-        <ScrollView>
-          <Text>Nome</Text>
-          <TextInput onChangeText={(name) => this.setState({name})} />
+        <BackHeader navigation={navigation} target={"Settings"}/>
+          <ScrollView>
+            <View style={styles.container}>
 
-          <Text>E-mail</Text>
-          <TextInput onChangeText={(email) => this.setState({email})} />
+            <Text style={styles.label}>Nome</Text>
+            <TextInput
+              autoCapitalize="words"
+              autoCorrect={false}
+              returnKeyType="next"
+              keyboardType="default"
+              placeholderTextColor="#999"
+              style={styles.input}
+              onChangeText={(name) => this.setState({name})}
+            />
 
-          <Text>Telefone</Text>
-          <TextInput onChangeText={(phone) => this.setState({phone})} />
+            <Text style={styles.label}>E-mail</Text>
+            <TextInput
+              autoCapitalize="none"
+              autoCorrect={false}
+              returnKeyType="next"
+              keyboardType="email-address"
+              placeholderTextColor="#999"
+              style={styles.input}
+              onChangeText={(email) => this.setState({email})}
+            />
 
-          <Text>Senha</Text>
-          <TextInput onChangeText={(password) => this.setState({password})} />
+            <Text style={styles.label}>Telefone</Text>
+            <TextInput
+              autoCapitalize="none"
+              autoCorrect={false}
+              returnKeyType="next"
+              keyboardType="number-pad"
+              placeholderTextColor="#999"
+              style={styles.input}
+              onChangeText={(phone) => this.setState({phone})}
+            />
 
-          <Text>Endereço</Text>
-          <TextInput onChangeText={(address) => this.setState({address})} />
+            <Text style={styles.label}>Senha</Text>
+            <TextInput
+              autoCapitalize="none"
+              autoCorrect={false}
+              returnKeyType="next"
+              keyboardType="default"
+              placeholderTextColor="#999"
+              style={styles.input}
+              onChangeText={(password) => this.setState({password})}
+            />
 
-          <Button
-            onPress={() => this.onRegisterPress()}
-            title="Cadastrar-se"
-            color="#841584"
-            accessibilityLabel="Learn more about this purple button"
-          />
+            <Text style={styles.label}>Endereço</Text>
+            <TextInput
+              autoCapitalize="none"
+              autoCorrect={false}
+              returnKeyType="send"
+              keyboardType="default"
+              placeholderTextColor="#999"
+              style={styles.input}
+              onChangeText={(address) => this.setState({address})}
+            />
 
+            <TouchableOpacity
+              onPress={() => this.onRegisterPress()}
+              style={{alignSelf: 'stretch'}}>
+              <LinearGradient
+                style={styles.button}
+                start={{x: 0, y: 0}}
+                end={{x: 1, y: 1}}
+                colors={['#EF5350', '#F59896']}>
+                <Text style={styles.buttonText}>Cadastrar</Text>
+              </LinearGradient>
+            </TouchableOpacity>
+          </View>
         </ScrollView>
       </View>
     );
   }
 }
 
-/*Criando stylesheet*/
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  }
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 20,
+    marginBottom: 20,
+  },
+
+  label: {
+    fontSize: 12, 
+    color: '#666', 
+    marginLeft: 5
+  },
+
+  input: {
+    height: 46,
+    alignSelf: 'stretch',
+    backgroundColor: '#FFF',
+    borderWidth: 1,
+    borderColor: '#DDD',
+    borderRadius: 4,
+    marginTop: 5,
+    marginBottom: 10,
+    paddingHorizontal: 15,
+  },
+
+  button: {    
+    height: 46,
+    backgroundColor: '#DF4723',
+    borderRadius: 4,
+    
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.16,
+    shadowRadius: 4,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+
+    marginTop: 30,
+    marginBottom: 30,
+  },
+
+  buttonText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
 });
