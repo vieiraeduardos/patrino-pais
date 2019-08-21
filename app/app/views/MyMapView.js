@@ -4,7 +4,7 @@ import MapView from 'react-native-maps';
 
 
 import { Avatar, Badge, ThemeProvider} from "react-native-elements";
-import BackHeader from './BackHeader';
+import BackHeader from '../components/BackHeader';
 
 import MapViewDirections from 'react-native-maps-directions';
 import getDirections from 'react-native-google-maps-directions'
@@ -40,7 +40,7 @@ const backgroundColor = '#007256';
 
 const { height, width } = Dimensions.get('window');
 
-export default class MyMap extends Component {
+export default class MyMapView extends Component {
   static navigationOptions = {
     header: null
   };

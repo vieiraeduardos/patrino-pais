@@ -15,9 +15,9 @@ import {
 /*Importando componentes de telas*/
 import LoginView from "./app/views/LoginView";
 import HomeScreen from "./app/components/HomeScreen";
-import RegisterView from "./app/components/RegisterView";
+import RegisterView from "./app/views/RegisterView";
 import Settings from "./app/components/Settings";
-import MyMap from "./app/components/MyMap";
+import MyMapView from "./app/views/MyMapView";
 import Questions from "./app/components/Questions";
 import Question from "./app/components/Question";
 import DoarScreen from "./app/components/DoarScreen";
@@ -91,10 +91,10 @@ const App = createStackNavigator({
       title: "LoginView"
     }
   },
-  MyMap: {
-    screen: MyMap,
+  MyMapView: {
+    screen: MyMapView,
     navigationOptions: {
-      title: "MyMap"
+      title: "MyMapView"
     }
   },
   RegisterView: {

@@ -69,7 +69,7 @@ export default class HomeScreen extends Component {
         <Botao itWasRequested={this.state.itWasRequested} navigation={this.props.navigation}/>
 
         <View style={button.container}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("MyMap", {navigation})}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("MyMapView", {navigation})}>
             <LinearGradient
             style={button.icon}
             start={{x: 0, y: 1}}
