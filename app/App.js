@@ -21,7 +21,7 @@ import MyMapView from "./app/views/MyMapView";
 import FAQView from "./app/views/FAQView";
 import Question from "./app/components/Question";
 import DoarScreen from "./app/components/DoarScreen";
-import Edit from "./app/components/Edit";
+import EditView from "./app/views/EditView";
 import QuizView from "./app/views/QuizView";
 import StatusView from "./app/views/StatusView";
 
@@ -115,10 +115,10 @@ const App = createStackNavigator({
       title: "SettingsView"
     }
   },
-  Edit: {
-    screen: Edit,
+  EditView: {
+    screen: EditView,
     navigationOptions: {
-      title: "Edit"
+      title: "EditView"
     }
   },
   FAQView: {

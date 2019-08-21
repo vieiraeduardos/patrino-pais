@@ -55,7 +55,7 @@ export default class SettingsView extends Component {
         <BackHeader navigation={this.props.navigation} target={"HomeScreen"}/>
         <View style={styles.container}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Edit", {navigation}) }
+            onPress={() => navigation.navigate("EditView", {navigation}) }
             style={{alignSelf: 'stretch'}}>
             <LinearGradient
               style={styles.button}
