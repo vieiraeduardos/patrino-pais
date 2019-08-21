@@ -9,9 +9,9 @@ import milkBottle from '../res/milk_bottle.png';
 import heartPin from '../res/heart_pin.png';
 import bubbleChat from '../res/bubble_chat.png';
 
-import Botao from "./Botao";
+import Botao from "../components/Botao";
 
-export default class HomeScreen extends Component {
+export default class HomeScreenView extends Component {
   static navigationOptions = {
     header: null
   };

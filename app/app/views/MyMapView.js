@@ -186,7 +186,7 @@ export default class MyMapView extends Component {
 
    return (
      <ThemeProvider>
-       <BackHeader navigation={navigation} target={"HomeScreen"}/>
+       <BackHeader navigation={navigation} target={"HomeScreenView"}/>
        <View style={styles.container}>
 
             <MapView

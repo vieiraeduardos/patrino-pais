@@ -43,7 +43,7 @@ export default class FAQView extends Component {
 
    return (
      <ThemeProvider>
-       <BackHeader navigation={navigation} target="HomeScreen" />
+       <BackHeader navigation={navigation} target="HomeScreenView" />
 
        <FlatList
         data={questions}

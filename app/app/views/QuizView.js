@@ -31,7 +31,7 @@ export default class QuizView extends Component {
     if(isGiver == false) {
       Alert.alert("Você não pode ser uma doadora!");
 
-      navigation.navigate("HomeScreen");
+      navigation.navigate("HomeScreenView");
     } else {
       const URL = "http://35.202.173.125";
 
@@ -52,7 +52,7 @@ export default class QuizView extends Component {
         .then((responseJson) => {
           Alert.alert("Requisição enviada com sucesso!");
 
-          navigation.navigate("HomeScreen");
+          navigation.navigate("HomeScreenView");
         })
         .catch((error) => {
           console.error(error);
@@ -77,7 +77,7 @@ export default class QuizView extends Component {
 
     return(
       <View>
-        <BackHeader navigation={navigation} target={"HomeScreen"}/>
+        <BackHeader navigation={navigation} target={"HomeScreenView"}/>
 
         <ScrollView >
           <View style={{marginLeft: 30, marginRight: 30, marginTop: 20}}>

@@ -28,7 +28,7 @@ export default class LoginView extends Component {
         await AsyncStorage.setItem('code', "" + responseJson.code);
         await AsyncStorage.setItem('logging', "true");
 
-        this.props.navigation.navigate("HomeScreen");
+        this.props.navigation.navigate("HomeScreenView");
 
       } else {
         Alert.alert("E-mail ou senha estão incorretos!");

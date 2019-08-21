@@ -52,7 +52,7 @@ export default class SettingsView extends Component {
 
     return (
       <View style={{flex: 1}}>
-        <BackHeader navigation={this.props.navigation} target={"HomeScreen"}/>
+        <BackHeader navigation={this.props.navigation} target={"HomeScreenView"}/>
         <View style={styles.container}>
           <TouchableOpacity
             onPress={() => navigation.navigate("EditView", {navigation}) }
