@@ -10,6 +10,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 export default class Quiz extends Component {
   static navigationOptions = {
     header: null
+  
   };
 
   async onAnalize() {

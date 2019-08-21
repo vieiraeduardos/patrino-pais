@@ -7,12 +7,13 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
-import BackHeader from './BackHeader';
+
+import BackHeader from '../components/BackHeader';
 import LinearGradient from 'react-native-linear-gradient';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
-export default class Register extends Component {
+export default class RegisterView extends Component {
   /*Removendo header padrão*/
   static navigationOptions = {
     header: null
@@ -57,7 +58,7 @@ export default class Register extends Component {
       .then((response) => response.json())
       .then((responseJson) => {
 
-        this.props.navigation.navigate("Login");
+        this.props.navigation.navigate("LoginView");
       })
       .catch((error) => {
         console.error(error);

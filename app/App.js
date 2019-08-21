@@ -13,9 +13,9 @@ import {
 } from 'react-navigation';
 
 /*Importando componentes de telas*/
-import Login from "./app/components/Login";
+import LoginView from "./app/views/LoginView";
 import HomeScreen from "./app/components/HomeScreen";
-import Register from "./app/components/Register";
+import RegisterView from "./app/components/RegisterView";
 import Settings from "./app/components/Settings";
 import MyMap from "./app/components/MyMap";
 import Questions from "./app/components/Questions";
@@ -59,7 +59,7 @@ class Home extends Component {
     if(this.state.logging == "false" || !this.state.logging) {
       return (
         <View style={styles.container}>
-          <Login navigation={this.props.navigation} />
+          <LoginView navigation={this.props.navigation} />
         </View>
       );
     } else {
@@ -85,10 +85,10 @@ const App = createStackNavigator({
         title: "HomeScreen"
       },
   },
-  Login: {
-    screen: Login,
+  LoginView: {
+    screen: LoginView,
     navigationOptions: {
-      title: "Login"
+      title: "LoginView"
     }
   },
   MyMap: {
@@ -97,8 +97,8 @@ const App = createStackNavigator({
       title: "MyMap"
     }
   },
-  Register: {
-    screen: Register,
+  RegisterView: {
+    screen: RegisterView,
     navigationOptions: {
       title: "Registro"
     }

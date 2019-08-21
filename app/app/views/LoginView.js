@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import heart from '../res/heart.png';
 
-export default class Login extends Component {
+export default class LoginView extends Component {
   constructor() {
     super();
     this.state = {
@@ -125,7 +125,7 @@ export default class Login extends Component {
             </TouchableOpacity>
 
             <TouchableOpacity 
-              onPress={() => this.props.navigation.navigate("Register", {navigation})} 
+              onPress={() => this.props.navigation.navigate("RegisterView", {navigation})} 
               style={{alignSelf: 'stretch'}}>
               <LinearGradient 
                 style={styles.button}
