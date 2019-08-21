@@ -3,11 +3,11 @@ import {ScrollView, Text, Alert, View} from "react-native";
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-import BackHeader from './BackHeader';
+import BackHeader from '../components/BackHeader';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
-export default class Quiz extends Component {
+export default class QuizView extends Component {
   static navigationOptions = {
     header: null
   

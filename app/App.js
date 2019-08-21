@@ -18,11 +18,11 @@ import HomeScreen from "./app/components/HomeScreen";
 import RegisterView from "./app/views/RegisterView";
 import SettingsView from "./app/views/SettingsView";
 import MyMapView from "./app/views/MyMapView";
-import Questions from "./app/components/Questions";
+import FAQView from "./app/views/FAQView";
 import Question from "./app/components/Question";
 import DoarScreen from "./app/components/DoarScreen";
 import Edit from "./app/components/Edit";
-import Quiz from "./app/components/Quiz";
+import QuizView from "./app/views/QuizView";
 import StatusView from "./app/views/StatusView";
 
 class Home extends Component {
@@ -103,10 +103,10 @@ const App = createStackNavigator({
       title: "Registro"
     }
   },
-  Quiz: {
-    screen: Quiz,
+  QuizView: {
+    screen: QuizView,
     navigationOptions: {
-      title: "Quiz"
+      title: "QuizView"
     }
   },
   SettingsView: {
@@ -121,10 +121,10 @@ const App = createStackNavigator({
       title: "Edit"
     }
   },
-  Questions: {
-    screen: Questions,
+  FAQView: {
+    screen: FAQView,
     navigationOptions: {
-      title: "Questions"
+      title: "FAQView"
     }
   },
 

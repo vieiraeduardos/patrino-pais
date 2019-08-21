@@ -15,7 +15,7 @@ export default class Botao extends Component {
     if(this.props.itWasRequested) {
       return (
         <View style={button.container}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("Quiz", {navigation})}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("QuizView", {navigation})}>
             <LinearGradient
             style={button.icon}
             start={{x: 0, y: 1}}

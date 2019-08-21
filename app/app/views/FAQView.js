@@ -16,9 +16,9 @@ import {
 
 } from "react-native-elements";
 
-import BackHeader from './BackHeader';
+import BackHeader from '../components/BackHeader';
 
-export default class Questions extends Component {
+export default class FAQView extends Component {
   static navigationOptions = {
     header: null
   };

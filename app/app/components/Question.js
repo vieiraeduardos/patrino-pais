@@ -29,7 +29,7 @@ export default class Question extends Component {
 
    return (
      <ThemeProvider>
-       <BackHeader navigation={navigation} target="Questions"/>
+       <BackHeader navigation={navigation} target="FAQView"/>
 
        <ScrollView>
         <Card title={this.props.navigation.state.params.item.title}>

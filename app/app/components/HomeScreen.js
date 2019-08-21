@@ -85,7 +85,7 @@ export default class HomeScreen extends Component {
         </View>
 
         <View style={button.container}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("Questions", {navigation})}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("FAQView", {navigation})}>
             <LinearGradient
             style={button.icon}
             start={{x: 0, y: 1}}
