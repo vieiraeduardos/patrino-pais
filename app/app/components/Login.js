@@ -72,6 +72,8 @@ export default class Login extends Component {
   }
 
   render() {
+    const navigation = this.props.navigation;
+
     return (
 
         <KeyboardAvoidingView 
@@ -123,7 +125,7 @@ export default class Login extends Component {
             </TouchableOpacity>
 
             <TouchableOpacity 
-              onPress={() => {this.props.navigation.navigate("Register");}} 
+              onPress={() => this.props.navigation.navigate("Register", {navigation})} 
               style={{alignSelf: 'stretch'}}>
               <LinearGradient 
                 style={styles.button}
