@@ -3,13 +3,14 @@ import {ScrollView, Text, Alert, View} from "react-native";
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-import BackHeader from './BackHeader';
+import BackHeader from '../components/BackHeader';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
-export default class Quiz extends Component {
+export default class QuizView extends Component {
   static navigationOptions = {
     header: null
+  
   };
 
   async onAnalize() {
@@ -30,7 +31,7 @@ export default class Quiz extends Component {
     if(isGiver == false) {
       Alert.alert("Você não pode ser uma doadora!");
 
-      navigation.navigate("HomeScreen");
+      navigation.navigate("HomeScreenView");
     } else {
       const URL = "http://35.202.173.125";
 
@@ -51,7 +52,7 @@ export default class Quiz extends Component {
         .then((responseJson) => {
           Alert.alert("Requisição enviada com sucesso!");
 
-          navigation.navigate("HomeScreen");
+          navigation.navigate("HomeScreenView");
         })
         .catch((error) => {
           console.error(error);
@@ -76,7 +77,7 @@ export default class Quiz extends Component {
 
     return(
       <View>
-        <BackHeader navigation={navigation} target={"HomeScreen"}/>
+        <BackHeader navigation={navigation} target={"HomeScreenView"}/>
 
         <ScrollView >
           <View style={{marginLeft: 30, marginRight: 30, marginTop: 20}}>

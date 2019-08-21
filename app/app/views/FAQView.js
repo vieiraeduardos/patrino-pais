@@ -16,9 +16,9 @@ import {
 
 } from "react-native-elements";
 
-import BackHeader from './BackHeader';
+import BackHeader from '../components/BackHeader';
 
-export default class Questions extends Component {
+export default class FAQView extends Component {
   static navigationOptions = {
     header: null
   };
@@ -43,7 +43,7 @@ export default class Questions extends Component {
 
    return (
      <ThemeProvider>
-       <BackHeader navigation={navigation} target="HomeScreen" />
+       <BackHeader navigation={navigation} target="HomeScreenView" />
 
        <FlatList
         data={questions}
@@ -52,7 +52,7 @@ export default class Questions extends Component {
                                 >
                                   <Text
                                     style={{marginBottom: 10}}
-                                    onPress={() => navigation.navigate("Question", {item, navigation})}
+                                    onPress={() => navigation.navigate("QuestionView", {item, navigation})}
                                   >
                                     {item.title}
                                   </Text>

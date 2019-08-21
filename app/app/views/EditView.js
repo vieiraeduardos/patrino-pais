@@ -7,12 +7,12 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
-import BackHeader from './BackHeader';
+import BackHeader from '../components/BackHeader';
 import LinearGradient from 'react-native-linear-gradient';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
-export default class Edit extends Component {
+export default class EditView extends Component {
   /*Removendo header padrão*/
   static navigationOptions = {
     header: null
@@ -84,7 +84,7 @@ export default class Edit extends Component {
     return (
 
       <View>
-        <BackHeader navigation={navigation} target={"Settings"}/>
+        <BackHeader navigation={navigation} target={"SettingsView"}/>
         <ScrollView>
           <View style={styles.container}>
             

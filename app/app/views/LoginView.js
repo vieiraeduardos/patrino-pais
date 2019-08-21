@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import heart from '../res/heart.png';
 
-export default class Login extends Component {
+export default class LoginView extends Component {
   constructor() {
     super();
     this.state = {
@@ -28,7 +28,7 @@ export default class Login extends Component {
         await AsyncStorage.setItem('code', "" + responseJson.code);
         await AsyncStorage.setItem('logging', "true");
 
-        this.props.navigation.navigate("HomeScreen");
+        this.props.navigation.navigate("HomeScreenView");
 
       } else {
         Alert.alert("E-mail ou senha estão incorretos!");
@@ -72,6 +72,8 @@ export default class Login extends Component {
   }
 
   render() {
+    const navigation = this.props.navigation;
+
     return (
 
         <KeyboardAvoidingView 
@@ -123,7 +125,7 @@ export default class Login extends Component {
             </TouchableOpacity>
 
             <TouchableOpacity 
-              onPress={() => {this.props.navigation.navigate("Register");}} 
+              onPress={() => this.props.navigation.navigate("RegisterView", {navigation})} 
               style={{alignSelf: 'stretch'}}>
               <LinearGradient 
                 style={styles.button}

@@ -29,7 +29,7 @@ export default class StatusView extends Component {
 
    return (
      <ThemeProvider>
-       <BackHeader navigation={navigation} target="HomeScreen" />
+       <BackHeader navigation={navigation} target="HomeScreenView" />
 
        <Card>
          <Text

@@ -4,9 +4,9 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
-import BackHeader from './BackHeader';
+import BackHeader from '../components/BackHeader';
 
-export default class Settings extends Component {
+export default class SettingsView extends Component {
   /*Removendo header padrão*/
   static navigationOptions = {
     header: null
@@ -52,10 +52,10 @@ export default class Settings extends Component {
 
     return (
       <View style={{flex: 1}}>
-        <BackHeader navigation={this.props.navigation} target={"HomeScreen"}/>
+        <BackHeader navigation={this.props.navigation} target={"HomeScreenView"}/>
         <View style={styles.container}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Edit", {navigation}) }
+            onPress={() => navigation.navigate("EditView", {navigation}) }
             style={{alignSelf: 'stretch'}}>
             <LinearGradient
               style={styles.button}

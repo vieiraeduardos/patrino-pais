@@ -13,16 +13,15 @@ import {
 } from 'react-navigation';
 
 /*Importando componentes de telas*/
-import Login from "./app/components/Login";
-import HomeScreen from "./app/components/HomeScreen";
-import Register from "./app/components/Register";
-import Settings from "./app/components/Settings";
-import MyMap from "./app/components/MyMap";
-import Questions from "./app/components/Questions";
-import Question from "./app/components/Question";
-import DoarScreen from "./app/components/DoarScreen";
-import Edit from "./app/components/Edit";
-import Quiz from "./app/components/Quiz";
+import LoginView from "./app/views/LoginView";
+import HomeScreenView from "./app/views/HomeScreenView";
+import RegisterView from "./app/views/RegisterView";
+import SettingsView from "./app/views/SettingsView";
+import MyMapView from "./app/views/MyMapView";
+import FAQView from "./app/views/FAQView";
+import QuestionView from "./app/views/QuestionView";
+import EditView from "./app/views/EditView";
+import QuizView from "./app/views/QuizView";
 import StatusView from "./app/views/StatusView";
 
 class Home extends Component {
@@ -59,13 +58,13 @@ class Home extends Component {
     if(this.state.logging == "false" || !this.state.logging) {
       return (
         <View style={styles.container}>
-          <Login navigation={this.props.navigation} />
+          <LoginView navigation={this.props.navigation} />
         </View>
       );
     } else {
       return (
         <View style={styles.container}>
-          <HomeScreen navigation={this.props.navigation} />
+          <HomeScreenView navigation={this.props.navigation} />
         </View>
       );
     }
@@ -79,69 +78,62 @@ const App = createStackNavigator({
       title: "Home"
     }
   },
-  HomeScreen: {
-    screen: HomeScreen,
+  HomeScreenView: {
+    screen: HomeScreenView,
     navigationOptions: {
-        title: "HomeScreen"
+        title: "HomeScreenView"
       },
   },
-  Login: {
-    screen: Login,
+  LoginView: {
+    screen: LoginView,
     navigationOptions: {
-      title: "Login"
+      title: "LoginView"
     }
   },
-  MyMap: {
-    screen: MyMap,
+  MyMapView: {
+    screen: MyMapView,
     navigationOptions: {
-      title: "MyMap"
+      title: "MyMapView"
     }
   },
-  Register: {
-    screen: Register,
+  RegisterView: {
+    screen: RegisterView,
     navigationOptions: {
       title: "Registro"
     }
   },
-  Quiz: {
-    screen: Quiz,
+  QuizView: {
+    screen: QuizView,
     navigationOptions: {
-      title: "Quiz"
+      title: "QuizView"
     }
   },
-  Settings: {
-    screen: Settings,
+  SettingsView: {
+    screen: SettingsView,
     navigationOptions: {
-      title: "Settings"
+      title: "SettingsView"
     }
   },
-  Edit: {
-    screen: Edit,
+  EditView: {
+    screen: EditView,
     navigationOptions: {
-      title: "Edit"
+      title: "EditView"
     }
   },
-  Questions: {
-    screen: Questions,
+  FAQView: {
+    screen: FAQView,
     navigationOptions: {
-      title: "Questions"
-    }
-  },
-
-  Question: {
-    screen: Question,
-    navigationOptions: {
-      title: "Question"
+      title: "FAQView"
     }
   },
 
-  DoarScreen: {
-    screen: DoarScreen,
+  QuestionView: {
+    screen: QuestionView,
     navigationOptions: {
-      title: "DoarScreen"
+      title: "QuestionView"
     }
   },
-
+  
   StatusView: {
     screen: StatusView,
     navigationOptions: {

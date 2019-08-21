@@ -9,9 +9,9 @@ import milkBottle from '../res/milk_bottle.png';
 import heartPin from '../res/heart_pin.png';
 import bubbleChat from '../res/bubble_chat.png';
 
-import Botao from "./Botao";
+import Botao from "../components/Botao";
 
-export default class HomeScreen extends Component {
+export default class HomeScreenView extends Component {
   static navigationOptions = {
     header: null
   };
@@ -60,7 +60,7 @@ export default class HomeScreen extends Component {
             <Icon
               style={header.icon}
               name="more-vert"
-              onPress={() => this.props.navigation.navigate("Settings", {navigation})}/>
+              onPress={() => this.props.navigation.navigate("SettingsView", {navigation})}/>
           </View>
         </View>
 
@@ -69,7 +69,7 @@ export default class HomeScreen extends Component {
         <Botao itWasRequested={this.state.itWasRequested} navigation={this.props.navigation}/>
 
         <View style={button.container}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("MyMap", {navigation})}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("MyMapView", {navigation})}>
             <LinearGradient
             style={button.icon}
             start={{x: 0, y: 1}}
@@ -85,7 +85,7 @@ export default class HomeScreen extends Component {
         </View>
 
         <View style={button.container}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate("Questions", {navigation})}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("FAQView", {navigation})}>
             <LinearGradient
             style={button.icon}
             start={{x: 0, y: 1}}

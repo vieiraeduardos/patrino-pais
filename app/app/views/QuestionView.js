@@ -17,9 +17,9 @@ import {
 
 } from "react-native-elements";
 
-import BackHeader from './BackHeader';
+import BackHeader from '../components/BackHeader';
 
-export default class Question extends Component {
+export default class QuestionView extends Component {
   static navigationOptions = {
     header: null
   };
@@ -29,7 +29,7 @@ export default class Question extends Component {
 
    return (
      <ThemeProvider>
-       <BackHeader navigation={navigation} target="Questions"/>
+       <BackHeader navigation={navigation} target="FAQView"/>
 
        <ScrollView>
         <Card title={this.props.navigation.state.params.item.title}>
