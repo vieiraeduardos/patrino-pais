@@ -52,7 +52,7 @@ export default class FAQView extends Component {
                                 >
                                   <Text
                                     style={{marginBottom: 10}}
-                                    onPress={() => navigation.navigate("Question", {item, navigation})}
+                                    onPress={() => navigation.navigate("QuestionView", {item, navigation})}
                                   >
                                     {item.title}
                                   </Text>

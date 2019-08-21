@@ -19,7 +19,7 @@ import RegisterView from "./app/views/RegisterView";
 import SettingsView from "./app/views/SettingsView";
 import MyMapView from "./app/views/MyMapView";
 import FAQView from "./app/views/FAQView";
-import Question from "./app/components/Question";
+import QuestionView from "./app/views/QuestionView";
 import EditView from "./app/views/EditView";
 import QuizView from "./app/views/QuizView";
 import StatusView from "./app/views/StatusView";
@@ -127,10 +127,10 @@ const App = createStackNavigator({
     }
   },
 
-  Question: {
-    screen: Question,
+  QuestionView: {
+    screen: QuestionView,
     navigationOptions: {
-      title: "Question"
+      title: "QuestionView"
     }
   },
   
