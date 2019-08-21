@@ -4,9 +4,9 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
-import BackHeader from './BackHeader';
+import BackHeader from '../components/BackHeader';
 
-export default class Settings extends Component {
+export default class SettingsView extends Component {
   /*Removendo header padrão*/
   static navigationOptions = {
     header: null

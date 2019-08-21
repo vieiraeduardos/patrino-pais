@@ -16,7 +16,7 @@ import {
 import LoginView from "./app/views/LoginView";
 import HomeScreen from "./app/components/HomeScreen";
 import RegisterView from "./app/views/RegisterView";
-import Settings from "./app/components/Settings";
+import SettingsView from "./app/views/SettingsView";
 import MyMapView from "./app/views/MyMapView";
 import Questions from "./app/components/Questions";
 import Question from "./app/components/Question";
@@ -109,10 +109,10 @@ const App = createStackNavigator({
       title: "Quiz"
     }
   },
-  Settings: {
-    screen: Settings,
+  SettingsView: {
+    screen: SettingsView,
     navigationOptions: {
-      title: "Settings"
+      title: "SettingsView"
     }
   },
   Edit: {

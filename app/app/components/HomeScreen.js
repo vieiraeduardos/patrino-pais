@@ -60,7 +60,7 @@ export default class HomeScreen extends Component {
             <Icon
               style={header.icon}
               name="more-vert"
-              onPress={() => this.props.navigation.navigate("Settings", {navigation})}/>
+              onPress={() => this.props.navigation.navigate("SettingsView", {navigation})}/>
           </View>
         </View>
 

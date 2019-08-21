@@ -84,7 +84,7 @@ export default class Edit extends Component {
     return (
 
       <View>
-        <BackHeader navigation={navigation} target={"Settings"}/>
+        <BackHeader navigation={navigation} target={"SettingsView"}/>
         <ScrollView>
           <View style={styles.container}>
             
